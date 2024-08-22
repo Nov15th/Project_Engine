@@ -4,6 +4,11 @@
 #include "framework.h"
 #include "Editor_Window.h"
 
+
+
+#include "..\\ProjectEngine_SOURCE\\peApplication.h"
+//#pragma comment (lib, "..\\X64\\Debug\\peApplication_Window.lib")
+
 #define MAX_LOADSTRING 100
 
 // 전역 변수:
@@ -21,7 +26,7 @@ BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
-int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
+int APIENTRY wWinMain(_In_ HINSTANCE hInstance,             //프로그램 인스턴스 핸들
                      _In_opt_ HINSTANCE hPrevInstance,
                      _In_ LPWSTR    lpCmdLine,
                      _In_ int       nCmdShow)
@@ -46,15 +51,49 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     MSG msg;
 
+    //GetMessage(&msg, nullptr, 0, 0)
+    //프로세스에서 발생한 메세지를 메세지 큐에서 가져오는 함수
+    // 메세지큐에 아무것도 없을경우 아무 메세지를 가져오지 않는다.
+    // PeekMessage
+    // 메세지의 유무와 상관없이 함수가 리턴된다.
+    // 리턴값이 true인 경우 메세지가 있고 false인 경우에는 메세지가 없다고 알려준다.
+    //
+
+
     // 기본 메시지 루프입니다:
-    while (GetMessage(&msg, nullptr, 0, 0))
+    //while (GetMessage(&msg, nullptr, 0, 0))
+    //{
+    //    if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+    //    {
+    //        TranslateMessage(&msg);
+    //        DispatchMessage(&msg);
+    //    }
+    //}
+
+    while (true)
     {
-        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+        //메세지가 있을경우
+        if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
         {
-            TranslateMessage(&msg);
-            DispatchMessage(&msg);
+            if (msg.message == WM_QUIT)
+            {
+                break;
+            }
+
+            if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+            {
+                TranslateMessage(&msg);
+                DispatchMessage(&msg);
+            }
+        }
+        else
+        {
+            //메세지가 없을경우 돌아가는 게임 로직
+            
         }
     }
+
+
 
     return (int) msg.wParam;
 }
@@ -100,9 +139,9 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
-
+   //hWnd를 여러개 생성하면 창을 여러개 띄우는것도 가능하다
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+      100, 100, 1600, 900, nullptr, nullptr, hInstance, nullptr);
 
    if (!hWnd)
    {
@@ -146,11 +185,50 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             }
         }
         break;
+    case WM_KEYDOWN:
+    //{
+    //
+    //}
+    //break;
     case WM_PAINT:
         {
             PAINTSTRUCT ps;
+            //그림을 그리기위해 필요한 윈도우의 DC핸들을 받아옴 -> BeginPaint 반환값이 DC임
             HDC hdc = BeginPaint(hWnd, &ps);
             // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
+            // DC란 화면에 출력에 필요한 모든 정보를 가지는 데이터 구조체를 의미함
+            // GDI모듈에 의해 관리됨 (ex) 어떤 폰트를 사용할것인가 or 선의 굵기 또는 색깔은 어떻게 할것인가 등
+            // 화면 출력에 관한 모든 상황에서 winapi에서는 DC를 통해서만 작업을 진행 할수 있음
+
+            //칠하고 싶은 브러쉬 생성
+            HBRUSH brush = CreateSolidBrush(RGB(0, 0, 255));
+            //디폴트 대신 생성한 브러쉬 선택 및 디폴트 색상 저장
+            HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, brush);
+            
+            Rectangle(hdc, 100, 100, 200, 200);
+            //다시 디폴트 브러쉬로 변경
+            SelectObject(hdc, oldBrush);
+
+            //생성한 브러쉬 삭제
+            DeleteObject(brush);
+
+            //Brush 대신 Pen
+            HPEN redPen = CreatePen(PS_SOLID, 10, RGB(255, 0, 0));
+            HPEN oldPen = (HPEN)SelectObject(hdc, redPen);
+            Ellipse(hdc, 200, 200, 300, 300);
+            SelectObject(hdc, oldPen);
+            DeleteObject(redPen);
+
+
+            // 기본으로 자주사용되는 GDI 오브젝트들을 미리 DC안에 만들어 두었는데
+            // 이를 스톡오브젝트라 한다.
+            
+            oldBrush = (HBRUSH)SelectObject(hdc,GetStockObject(GRAY_BRUSH));
+            
+            Rectangle(hdc, 400, 400, 500, 500);
+            SelectObject(hdc, oldBrush);
+
+
             EndPaint(hWnd, &ps);
         }
         break;
