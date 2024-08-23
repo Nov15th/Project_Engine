@@ -9,6 +9,8 @@
 #include "..\\ProjectEngine_SOURCE\\peApplication.h"
 //#pragma comment (lib, "..\\X64\\Debug\\peApplication_Window.lib")
 
+YM::Application application;
+
 #define MAX_LOADSTRING 100
 
 // 전역 변수:
@@ -89,7 +91,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,             //프로그램 인�
         else
         {
             //메세지가 없을경우 돌아가는 게임 로직
-            
+            application.Run();
         }
     }
 
@@ -142,6 +144,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    //hWnd를 여러개 생성하면 창을 여러개 띄우는것도 가능하다
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       100, 100, 1600, 900, nullptr, nullptr, hInstance, nullptr);
+   application.Initialize(hWnd);
 
    if (!hWnd)
    {
@@ -200,35 +203,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             // GDI모듈에 의해 관리됨 (ex) 어떤 폰트를 사용할것인가 or 선의 굵기 또는 색깔은 어떻게 할것인가 등
             // 화면 출력에 관한 모든 상황에서 winapi에서는 DC를 통해서만 작업을 진행 할수 있음
 
-            //칠하고 싶은 브러쉬 생성
-            HBRUSH brush = CreateSolidBrush(RGB(0, 0, 255));
-            //디폴트 대신 생성한 브러쉬 선택 및 디폴트 색상 저장
-            HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, brush);
-            
-            Rectangle(hdc, 100, 100, 200, 200);
-            //다시 디폴트 브러쉬로 변경
-            SelectObject(hdc, oldBrush);
-
-            //생성한 브러쉬 삭제
-            DeleteObject(brush);
-
-            //Brush 대신 Pen
-            HPEN redPen = CreatePen(PS_SOLID, 10, RGB(255, 0, 0));
-            HPEN oldPen = (HPEN)SelectObject(hdc, redPen);
-            Ellipse(hdc, 200, 200, 300, 300);
-            SelectObject(hdc, oldPen);
-            DeleteObject(redPen);
-
-
-            // 기본으로 자주사용되는 GDI 오브젝트들을 미리 DC안에 만들어 두었는데
-            // 이를 스톡오브젝트라 한다.
-            
-            oldBrush = (HBRUSH)SelectObject(hdc,GetStockObject(GRAY_BRUSH));
-            
-            Rectangle(hdc, 400, 400, 500, 500);
-            SelectObject(hdc, oldBrush);
-
-
+           
             EndPaint(hWnd, &ps);
         }
         break;
