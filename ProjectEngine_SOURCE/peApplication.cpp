@@ -1,4 +1,6 @@
 #include "peApplication.h"
+#include "YMInput.h"
+
 
 namespace YM
 {
@@ -19,6 +21,9 @@ namespace YM
 		mHwnd = hwnd;
 		mHdc = GetDC(hwnd);
 		mPlayer.SetPosition(0, 0);
+
+		Input::Initailize();
+
 	}
 	void Application::Run()
 	{
@@ -29,7 +34,9 @@ namespace YM
 
 	void Application::Update()
 	{
+		Input::Update();
 		mPlayer.Updata();
+
 	}
 	void Application::LateUpdate()
 	{

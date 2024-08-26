@@ -7,7 +7,11 @@
 
 
 #include "..\\ProjectEngine_SOURCE\\peApplication.h"
-//#pragma comment (lib, "..\\X64\\Debug\\peApplication_Window.lib")
+//#pragma comment (lib, "ProjectEngine_Window.lib")
+
+
+
+
 
 YM::Application application;
 
@@ -144,6 +148,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    //hWnd를 여러개 생성하면 창을 여러개 띄우는것도 가능하다
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       100, 100, 1600, 900, nullptr, nullptr, hInstance, nullptr);
+
    application.Initialize(hWnd);
 
    if (!hWnd)
