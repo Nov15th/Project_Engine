@@ -1,6 +1,6 @@
 #include "peApplication.h"
 #include "YMInput.h"
-
+#include "YMTime.h"
 
 namespace YM
 {
@@ -23,7 +23,7 @@ namespace YM
 		mPlayer.SetPosition(0, 0);
 
 		Input::Initailize();
-
+		Time::Initailize();
 	}
 	void Application::Run()
 	{
@@ -35,6 +35,7 @@ namespace YM
 	void Application::Update()
 	{
 		Input::Update();
+		Time::Update();
 		mPlayer.Updata();
 
 	}
@@ -44,7 +45,7 @@ namespace YM
 	}
 	void Application::Render()
 	{
+		Time::Render(mHdc);
 		mPlayer.Render(mHdc);
-	
 	}
 }

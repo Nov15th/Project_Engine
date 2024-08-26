@@ -3,7 +3,7 @@
 namespace YM
 {
 
-	std::vector<Input::Key> Input::mKeys = {};
+	std::vector<Input::Key> Input::Keys = {};
 
 	int ASCII[(UINT)eKeyCode::End] =
 	{
@@ -27,7 +27,7 @@ namespace YM
 			key.state = eKeyState::None;
 			key.Keycord = (eKeyCode)i;
 
-			mKeys.push_back(key);
+			Keys.push_back(key);
 		}
 	}
 
@@ -42,10 +42,10 @@ namespace YM
 	
 	void Input::UpdateKeys()
 	{
-		std::for_each(mKeys.begin(), mKeys.end(),
+		std::for_each(Keys.begin(), Keys.end(),
 			[](Key& key) ->void
 			{
-				UpdateKeys();
+				UpdateKey(key);
 			});
 	}
 

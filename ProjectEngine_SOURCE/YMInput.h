@@ -33,9 +33,9 @@ namespace YM
 		static void Initailize();
 		static void Update();
 
-		static bool GetKeyDown(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Down; }
-		static bool GetKeyUp(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Up; }
-		static bool GetKey(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Pressed; }
+		static bool GetKeyDown(eKeyCode code) { return Keys[(UINT)code].state == eKeyState::Down; }
+		static bool GetKeyUp(eKeyCode code) { return Keys[(UINT)code].state == eKeyState::Up; }
+		static bool GetKey(eKeyCode code) { return Keys[(UINT)code].state == eKeyState::Pressed; }
 
 	private:
 		static void CreatKeys();
@@ -46,7 +46,7 @@ namespace YM
 		static void UpdateKeyUp(Input::Key& key);
 	private:
 		//클래스 내부에서 전역변수로 선언하는 방법 -> 정적 변수 static 변수
-		static std::vector<Key> mKeys;
+		static std::vector<Key> Keys;
 
 	};
 
