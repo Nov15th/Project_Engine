@@ -29,7 +29,7 @@ namespace YM
 		float fps = 1.0f / DeltaTimeValue;
 
 		wchar_t str[50] = L"";
-		swprintf(str, 50, L"TIME : %f", fps);
+		swprintf(str, 50, L"TIME : %f", time);
 		int len = wcsnlen_s(str, 50);
 
 		

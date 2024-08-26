@@ -145,11 +145,16 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
+
+   const UINT width = 1600;
+   const UINT height = 900;
+
+
    //hWnd를 여러개 생성하면 창을 여러개 띄우는것도 가능하다
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      100, 100, 1600, 900, nullptr, nullptr, hInstance, nullptr);
+      100, 100, width, height, nullptr, nullptr, hInstance, nullptr);
 
-   application.Initialize(hWnd);
+   application.Initialize(hWnd, width, height);
 
    if (!hWnd)
    {
