@@ -32,15 +32,21 @@ namespace YM
 	}
 
 	
+
+	
 	
 	void Input::Update()
+	{
+		UpdateKeys();
+	}
+	
+	void Input::UpdateKeys()
 	{
 		std::for_each(mKeys.begin(), mKeys.end(),
 			[](Key& key) ->void
 			{
 				UpdateKeys();
 			});
-		
 	}
 
 	void Input::UpdateKey(Input::Key& key)
