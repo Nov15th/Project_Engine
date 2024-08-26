@@ -16,7 +16,8 @@ namespace YM
 		Q,W,E,R,T,Y,U,I,O,P,
 		A,S,D,F,G,H,J,K,L,
 		Z,X,C,V,B,N,M,
-		End
+		Left, Right, Down, Up,
+		End,
 	};
 
 	class Input
@@ -36,7 +37,13 @@ namespace YM
 		static bool GetKeyUp(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Up; }
 		static bool GetKey(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Pressed; }
 
-	
+	private:
+		static void CreatKeys();
+		static void UpdateKeys();
+		static void UpdateKey(Input::Key& key);
+		static bool IsKeyDown(eKeyCode code);
+		static void UpdateKeyDown(Input::Key& key);
+		static void UpdateKeyUp(Input::Key& key);
 	private:
 		//클래스 내부에서 전역변수로 선언하는 방법 -> 정적 변수 static 변수
 		static std::vector<Key> mKeys;
