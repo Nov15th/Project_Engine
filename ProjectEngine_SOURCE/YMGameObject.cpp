@@ -4,6 +4,8 @@
 namespace YM
 {
 	GameObject::GameObject()
+		:mX(100)
+		,mY(100)
 	{
 	}
 	GameObject::~GameObject()
@@ -39,7 +41,7 @@ namespace YM
 	void GameObject::Render(HDC hdc)
 	{
 		//칠하고 싶은 브러쉬 생성
-		HBRUSH brush = CreateSolidBrush(RGB(0, 0, 255));
+		HBRUSH brush = CreateSolidBrush(RGB(rand()%255, rand() % 255, rand() % 255));
 		//디폴트 대신 생성한 브러쉬 선택 및 디폴트 색상 저장
 		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, brush);
 

@@ -1,6 +1,7 @@
 #include "peApplication.h"
 #include "YMInput.h"
 #include "YMTime.h"
+#include "YMSceneManager.h"
 
 namespace YM
 {
@@ -21,6 +22,7 @@ namespace YM
 	}
 	void Application::Initialize(HWND hwnd, UINT width, UINT height)
 	{
+		#pragma region 윈도우 셋팅 - 리펙토링 가능
 		mHwnd = hwnd;
 		mHdc = GetDC(hwnd);
 
@@ -41,11 +43,14 @@ namespace YM
 		mBackHdc = CreateCompatibleDC(mHdc);
 		HBITMAP oldBitmap = (HBITMAP)SelectObject(mBackHdc, mBackBitmap);
 		DeleteObject(oldBitmap);
+		
+		#pragma endregion
 
-		mPlayer.SetPosition(0, 0);
+		//mPlayer.SetPosition(0, 0);
 
 		Input::Initailize();
 		Time::Initailize();
+		SceneManager::Initialize();
 	}
 	void Application::Run()
 	{
@@ -58,7 +63,8 @@ namespace YM
 	{
 		Input::Update();
 		Time::Update();
-		mPlayer.Updata();
+		//mPlayer.Updata();
+		SceneManager::Update();
 
 	}
 	void Application::LateUpdate()
@@ -67,9 +73,10 @@ namespace YM
 	}
 	void Application::Render()
 	{
-		Rectangle(mBackHdc, 0, 0, 1600, 900);
+		Rectangle(mBackHdc, -1, -1, 1601, 901);
 		Time::Render(mBackHdc);
-		mPlayer.Render(mBackHdc);
+		//mPlayer.Render(mBackHdc);
+		SceneManager::Render(mBackHdc);
 
 		//백 버퍼에 있는것을 원본 버퍼에 복사(그려준다)
 		BitBlt(mHdc, 0, 0, mWidth, mHeight, mBackHdc, 0, 0, SRCCOPY);

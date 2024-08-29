@@ -132,6 +132,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="YMLoadScenes.h" />
+    <ClInclude Include="YMPlayScene.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="YMPlayScene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

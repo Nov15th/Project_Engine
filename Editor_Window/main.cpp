@@ -4,14 +4,8 @@
 #include "framework.h"
 #include "Editor_Window.h"
 
-
-
 #include "..\\ProjectEngine_SOURCE\\peApplication.h"
-//#pragma comment (lib, "ProjectEngine_Window.lib")
-
-
-
-
+#include "..\\ProjectEngine_Window\\YMLoadScenes.h"
 
 YM::Application application;
 
@@ -163,6 +157,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+
+   //load Scenes
+   YM::LoadScenes();
 
    return TRUE;
 }

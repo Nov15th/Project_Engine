@@ -1,2 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" />
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Scenes">
+      <UniqueIdentifier>{e2d05b00-4834-4641-bec2-c42c9b4bf0e3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="YMLoadScenes.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="YMPlayScene.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="YMPlayScene.cpp" />
+  </ItemGroup>
+</Project>

@@ -31,15 +31,10 @@ namespace YM
 		}
 	}
 
-	
-
-	
-	
 	void Input::Update()
 	{
 		UpdateKeys();
 	}
-	
 	void Input::UpdateKeys()
 	{
 		std::for_each(Keys.begin(), Keys.end(),
@@ -48,7 +43,6 @@ namespace YM
 				UpdateKey(key);
 			});
 	}
-
 	void Input::UpdateKey(Input::Key& key)
 	{
 		if (IsKeyDown(key.Keycord))
@@ -66,7 +60,6 @@ namespace YM
 		return GetAsyncKeyState(ASCII[(UINT)code]) & 0x8000;
 	}
 
-	
 	void Input::UpdateKeyDown(Input::Key& key)
 	{
 		if (key.bPressed == true)

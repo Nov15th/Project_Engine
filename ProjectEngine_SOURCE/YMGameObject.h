@@ -17,9 +17,6 @@ namespace YM
 
 
 
-
-
-
 		void SetPosition(float x, float y)
 		{
 			mX = x;
@@ -35,4 +32,6 @@ namespace YM
 		float mX;
 		float mY;
 	};
+
+	
 }

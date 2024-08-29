@@ -29,7 +29,8 @@ private:
 	//플레이어
 	//float mX;
 	//float mY;
-	GameObject mPlayer;
+	//
+	//GameObject mPlayer;
 };
 
 }
