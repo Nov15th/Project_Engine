@@ -10,8 +10,10 @@
       <Filter>Scenes</Filter>
     </ClInclude>
     <ClInclude Include="YMPlayScene.h" />
+    <ClInclude Include="YMPlayer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="YMPlayScene.cpp" />
+    <ClCompile Include="YMPlayer.cpp" />
   </ItemGroup>
 </Project>

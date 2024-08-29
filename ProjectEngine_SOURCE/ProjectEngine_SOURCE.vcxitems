@@ -16,20 +16,26 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)peApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMInput.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMSceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMSpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMTime.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMTransform.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)peApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMInput.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMSceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMSpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMTime.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMTransform.cpp" />
   </ItemGroup>
 </Project>

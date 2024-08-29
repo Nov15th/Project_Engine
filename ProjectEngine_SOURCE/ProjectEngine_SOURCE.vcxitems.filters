@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)peApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMEntity.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMGameObject.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMScene.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMSceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMTime.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMTransform.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMSpriteRenderer.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)peApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMEntity.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMGameObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMScene.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMSceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMTime.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMTransform.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMSpriteRenderer.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Component">
+      <UniqueIdentifier>{79c956b1-ebe0-4246-866d-273aa6ec50a7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

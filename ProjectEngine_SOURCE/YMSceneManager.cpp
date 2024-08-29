@@ -8,7 +8,6 @@ namespace YM
 
 	void SceneManager::Initialize()
 	{
-
 	}
 	void SceneManager::Update()
 	{

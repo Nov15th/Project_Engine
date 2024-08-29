@@ -29,7 +29,7 @@ namespace YM
 
 		for (GameObject* gameObj : mGameObjects)
 		{
-			gameObj->Updata();
+			gameObj->Update();
 		}
 
 	}
