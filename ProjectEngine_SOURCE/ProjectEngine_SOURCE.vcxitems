@@ -20,6 +20,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)YMEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMSpriteRenderer.h" />
@@ -32,6 +34,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)YMEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMMath.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMSpriteRenderer.cpp" />

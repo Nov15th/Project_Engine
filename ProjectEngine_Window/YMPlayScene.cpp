@@ -14,21 +14,16 @@ namespace YM
 	void PlayScene::Initialize()
 	{
 		
-		Player* pl = new Player();
+		Player* bg = new Player();
 		Transform* tr
-			= pl->AddComponent<Transform>();
-		tr->SetPos(800, 450);
-
+			= bg->AddComponent<Transform>();
+		tr->SetPos(Vector2(0, 0));
 		tr->SetName(L"TR");
-
 		SpriteRenderer* sr
-			= pl->AddComponent<SpriteRenderer>();
+			= bg->AddComponent<SpriteRenderer>();
 		sr->SetName(L"SR");
-
-		AddGameObject(pl);
-		
-
-		
+		sr->ImageLoad(L"C:\\Users\\Choi_young ming\\source\\repos\\ProjectEngine\\Resources\\CloudOcean.png");
+		AddGameObject(bg);
 	}
 	void PlayScene::Update()
 	{

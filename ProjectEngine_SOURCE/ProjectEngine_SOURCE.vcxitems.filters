@@ -2,11 +2,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)peApplication.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)YMEntity.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)YMGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMInput.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)YMScene.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)YMSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMTime.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMTransform.cpp">
       <Filter>Component</Filter>
@@ -14,15 +10,29 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)YMSpriteRenderer.cpp">
       <Filter>Component</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMEntity.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMMath.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMResource.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMComponent.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMGameObject.cpp">
+      <Filter>GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMSceneManager.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)peApplication.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)YMEntity.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)YMGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMInput.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)YMScene.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)YMSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMTransform.h">
       <Filter>Component</Filter>
@@ -30,10 +40,41 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)YMSpriteRenderer.h">
       <Filter>Component</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMEntity.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMMath.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMResource.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMComponent.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMGameObject.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMSceneManager.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Component">
       <UniqueIdentifier>{79c956b1-ebe0-4246-866d-273aa6ec50a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{78983e25-6e59-46b8-9379-811fd7ef9d7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject">
+      <UniqueIdentifier>{4f690660-bc1a-47f9-b82f-b1f92d0728f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{5da0f451-a942-4b9f-82e2-b0f2e1a8cc01}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
