@@ -1,6 +1,6 @@
 #pragma once
 
-namespace YM
+namespace YM::enums
 {
 	enum class eLayerType
 	{

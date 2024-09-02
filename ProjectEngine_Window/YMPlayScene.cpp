@@ -6,6 +6,7 @@
 #include "YMInput.h"
 #include "YMTitleScene.h"
 #include "YMSceneManager.h"
+#include "YMObject.h"
 
 namespace YM
 {
@@ -17,17 +18,23 @@ namespace YM
 	}
 	void PlayScene::Initialize()
 	{
-		
-		bg = new Player();
-		Transform* tr
-			= bg->AddComponent<Transform>();
-		tr->SetPos(Vector2(0, 0));
-		tr->SetName(L"TR");
+		//bg = new Player();
+		//Transform* tr
+		//	= bg->AddComponent<Transform>();
+		//tr->SetPosition(Vector2(0, 0));
+		//tr->SetName(L"TR");
+		//SpriteRenderer* sr
+		//	= bg->AddComponent<SpriteRenderer>();
+		//sr->SetName(L"SR");
+		//sr->ImageLoad(L"C:\\Users\\Choi_young ming\\source\\repos\\ProjectEngine\\Resources\\CloudOcean.png");
+		//AddGameObject(bg, enums::eLayerType::BackGround);
+
+		bg = Object::Instantiate<Player>(enums::eLayerType::BackGround, Vector2(500.0f,500.0f));
 		SpriteRenderer* sr
 			= bg->AddComponent<SpriteRenderer>();
 		sr->SetName(L"SR");
 		sr->ImageLoad(L"C:\\Users\\Choi_young ming\\source\\repos\\ProjectEngine\\Resources\\CloudOcean.png");
-		AddGameObject(bg, eLayerType::BackGround);
+		//AddGameObject(bg, enums::eLayerType::BackGround);
 	}
 	void PlayScene::Update()
 	{
@@ -53,6 +60,6 @@ namespace YM
 	void PlayScene::OnExit()
 	{
 		Transform* tr = bg->GetComponent<Transform>();
-		tr->SetPos(Vector2( 0, 0 ));
+		tr->SetPosition(Vector2( 0, 0 ));
 	}
 }

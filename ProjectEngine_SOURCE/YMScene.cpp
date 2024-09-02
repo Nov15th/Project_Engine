@@ -7,11 +7,8 @@ namespace YM
 	Scene::Scene()
 		:mLayers{}
 	{
-		mLayers.resize((UINT)eLayerType::Max);
-		for (size_t i = 0; i < (UINT)eLayerType::Max; i++)
-		{
-			mLayers[i] = new Layer();
-		}
+		CreatLayers();
+		
 		
 	}
 
@@ -77,9 +74,18 @@ namespace YM
 		}
 	}
 
-	void Scene::AddGameObject(GameObject* gameObj, const eLayerType type)
+	void Scene::AddGameObject(GameObject* gameObj, const enums::eLayerType type)
 	{
 		mLayers[(UINT)type]->AddGameObject(gameObj);
+	}
+
+	void Scene::CreatLayers()
+	{
+		mLayers.resize((UINT)enums::eLayerType::Max);
+		for (size_t i = 0; i < (UINT)enums::eLayerType::Max; i++)
+		{
+			mLayers[i] = new Layer();
+		}
 	}
 
 	void Scene::OnEnter()

@@ -1,11 +1,12 @@
 #include "YMGameObject.h"
 #include "YMInput.h"
 #include "YMTime.h"
+#include "YMTransform.h"
 namespace YM
 {
 	GameObject::GameObject()
 	{
-
+		initializeTransform();
 	}
 	GameObject::~GameObject()
 	{
@@ -44,6 +45,11 @@ namespace YM
 		{
 			comp->Render(hdc);
 		}
+	}
+
+	void GameObject::initializeTransform()
+	{
+		AddComponent<Transform>();
 	}
 
 }

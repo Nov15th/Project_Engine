@@ -23,6 +23,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)YMInput.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMSceneManager.h" />

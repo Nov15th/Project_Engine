@@ -18,7 +18,9 @@ namespace YM
 
 		void AddGameObject(GameObject* gameObject);
 
+	
 	private:
+
 		//eLayerType mType;
 		std::vector<GameObject*> mGameObjects;
 	};

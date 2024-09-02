@@ -51,7 +51,8 @@ namespace YM
 		//float GetPositionX() { return mX; }
 		//float GetPositionY() { return mY; }
 
-
+	private:
+		void initializeTransform();
 	private:
 		//// 게임 오브젝트 좌표
 		//float mX;
