@@ -10,6 +10,10 @@ namespace YM
 {
 	void LoadScenes()
 	{
+
+
+
+
 		SceneManager::CreatScene<PlayScene>(L"Play Scene");
 		SceneManager::CreatScene<TitleScene>(L"Title Scene");
 		//SceneManager::CreatScene<EndScene>(L"EndScene");

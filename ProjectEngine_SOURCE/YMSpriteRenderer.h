@@ -1,9 +1,12 @@
 #pragma once
 #include "YMEntity.h"
 #include "YMComponent.h"
+#include "YMTexture.h"
 
 namespace YM
 {
+	
+
 	class SpriteRenderer : public Component
 	{
 	public:
@@ -15,12 +18,12 @@ namespace YM
 		void LateUpdate()  override;
 		void Render(HDC hdc)  override;
 
-		void ImageLoad(const std::wstring& path);
+		void SetTexture(graphcis::Texture* texture) { mTexture = texture; }
+		void SetSize(math::Vector2 size) { mSize = size; }
 
 	private:
-		Gdiplus::Image* mImgae;
-		UINT mWidth;
-		UINT mHeight;
+		graphcis::Texture* mTexture;
+		math::Vector2 mSize;
 
 	};
 }

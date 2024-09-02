@@ -6,6 +6,7 @@
 
 #include "..\\ProjectEngine_SOURCE\\peApplication.h"
 #include "..\\ProjectEngine_Window\\YMLoadScenes.h"
+#include "..\\ProjectEngine_Window\\YMLoadResources.h"
 
 YM::Application application;
 
@@ -164,6 +165,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
 
    //load Scenes
+   YM::LoadResources();
    YM::LoadScenes();
 
    return TRUE;

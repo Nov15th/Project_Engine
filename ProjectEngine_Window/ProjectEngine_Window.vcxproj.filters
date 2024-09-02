@@ -16,6 +16,7 @@
     <ClInclude Include="YMTitleScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="YMLoadResources.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="YMPlayer.cpp" />

@@ -7,7 +7,8 @@
 #include "YMTitleScene.h"
 #include "YMSceneManager.h"
 #include "YMObject.h"
-
+#include "YMTexture.h"
+#include "YMResources.h"
 namespace YM
 {
 	PlayScene::PlayScene()
@@ -29,11 +30,20 @@ namespace YM
 		//sr->ImageLoad(L"C:\\Users\\Choi_young ming\\source\\repos\\ProjectEngine\\Resources\\CloudOcean.png");
 		//AddGameObject(bg, enums::eLayerType::BackGround);
 
+		//게임 오브젝트 만들기 전에 전부 리소스를 로드해두면 좋다.
+
+
 		bg = Object::Instantiate<Player>(enums::eLayerType::BackGround, Vector2(500.0f,500.0f));
 		SpriteRenderer* sr
 			= bg->AddComponent<SpriteRenderer>();
-		sr->SetName(L"SR");
-		sr->ImageLoad(L"C:\\Users\\Choi_young ming\\source\\repos\\ProjectEngine\\Resources\\CloudOcean.png");
+		graphcis::Texture* bg = Resources::Find<graphcis::Texture>(L"BG");
+		sr->SetTexture(bg);
+		//graphcis::Texture* tex = new graphcis::Texture();
+		//tex->Load(L"C:\\Users\\Choi_young ming\\source\\repos\\ProjectEngine\\Resources\\CloudOcean.png");
+
+
+		//sr->SetName(L"SR");
+		//sr->ImageLoad(L"C:\\Users\\Choi_young ming\\source\\repos\\ProjectEngine\\Resources\\CloudOcean.png");
 		//AddGameObject(bg, enums::eLayerType::BackGround);
 	}
 	void PlayScene::Update()

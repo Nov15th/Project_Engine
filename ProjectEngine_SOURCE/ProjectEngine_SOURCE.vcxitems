@@ -25,9 +25,11 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)YMMath.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMResource.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMSpriteRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMTexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMTransform.h" />
   </ItemGroup>
@@ -40,9 +42,11 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)YMLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMMath.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMResource.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMResources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMSpriteRenderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)YmTexture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMTime.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMTransform.cpp" />
   </ItemGroup>

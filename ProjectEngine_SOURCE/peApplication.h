@@ -14,6 +14,10 @@ public:
 	void Update();
 	void LateUpdate();
 	void Render();
+
+	HDC GetHDC() { return mHdc; }
+
+
 private:
 	HWND mHwnd;
 	HDC mHdc;
