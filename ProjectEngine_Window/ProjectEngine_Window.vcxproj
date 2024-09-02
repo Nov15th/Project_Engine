@@ -135,10 +135,12 @@
     <ClInclude Include="YMLoadScenes.h" />
     <ClInclude Include="YMPlayer.h" />
     <ClInclude Include="YMPlayScene.h" />
+    <ClInclude Include="YMTitleScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="YMPlayer.cpp" />
     <ClCompile Include="YMPlayScene.cpp" />
+    <ClCompile Include="YMTitleScene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

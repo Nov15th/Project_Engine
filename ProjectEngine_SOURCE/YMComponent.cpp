@@ -8,6 +8,7 @@ namespace YM
 	}
 	Component::~Component()
 	{
+		
 	}
 
 	void Component::Initialize()

@@ -3,6 +3,10 @@
 #include "YMPlayer.h"
 #include "YMTransform.h"
 #include "YMSpriteRenderer.h"
+#include "YMInput.h"
+#include "YMTitleScene.h"
+#include "YMSceneManager.h"
+
 namespace YM
 {
 	PlayScene::PlayScene()
@@ -14,7 +18,7 @@ namespace YM
 	void PlayScene::Initialize()
 	{
 		
-		Player* bg = new Player();
+		bg = new Player();
 		Transform* tr
 			= bg->AddComponent<Transform>();
 		tr->SetPos(Vector2(0, 0));
@@ -23,7 +27,7 @@ namespace YM
 			= bg->AddComponent<SpriteRenderer>();
 		sr->SetName(L"SR");
 		sr->ImageLoad(L"C:\\Users\\Choi_young ming\\source\\repos\\ProjectEngine\\Resources\\CloudOcean.png");
-		AddGameObject(bg);
+		AddGameObject(bg, eLayerType::BackGround);
 	}
 	void PlayScene::Update()
 	{
@@ -32,9 +36,23 @@ namespace YM
 	void PlayScene::LateUpdate()
 	{
 		Scene::LateUpdate();
+		if (Input::GetKeyDown(eKeyCode::N))
+		{
+			SceneManager::LoadScene(L"Title Scene");
+		}
 	}
 	void PlayScene::Render(HDC hdc)
 	{
 		Scene::Render(hdc);
+		wchar_t str[50] = L"Play Scene";
+		TextOut(hdc, 100, 100, str, 10);
+	}
+	void PlayScene::OnEnter()
+	{
+	}
+	void PlayScene::OnExit()
+	{
+		Transform* tr = bg->GetComponent<Transform>();
+		tr->SetPos(Vector2( 0, 0 ));
 	}
 }

@@ -9,11 +9,21 @@
     <ClInclude Include="YMLoadScenes.h">
       <Filter>Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="YMPlayScene.h" />
     <ClInclude Include="YMPlayer.h" />
+    <ClInclude Include="YMPlayScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="YMTitleScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="YMPlayScene.cpp" />
     <ClCompile Include="YMPlayer.cpp" />
+    <ClCompile Include="YMPlayScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="YMTitleScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

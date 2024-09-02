@@ -2,8 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)peApplication.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)YMInput.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)YMTime.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMTransform.cpp">
       <Filter>Component</Filter>
     </ClCompile>
@@ -29,11 +27,18 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)YMSceneManager.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMInput.cpp">
+      <Filter>Hlepers</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMTime.cpp">
+      <Filter>Hlepers</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMLayer.cpp">
+      <Filter>Layer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)peApplication.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)YMInput.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)YMTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMTransform.h">
       <Filter>Component</Filter>
     </ClInclude>
@@ -62,6 +67,18 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)YMSceneManager.h">
       <Filter>Scene</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMInput.h">
+      <Filter>Hlepers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMTime.h">
+      <Filter>Hlepers</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMLayer.h">
+      <Filter>Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMEnums.h">
+      <Filter>Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Component">
@@ -75,6 +92,12 @@
     </Filter>
     <Filter Include="Scene">
       <UniqueIdentifier>{5da0f451-a942-4b9f-82e2-b0f2e1a8cc01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hlepers">
+      <UniqueIdentifier>{0751ae1a-f1ac-4b47-8e84-e8e25feb5ac6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Layer">
+      <UniqueIdentifier>{3d12d77a-66b8-4dc1-98cb-248fcea42fd3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
