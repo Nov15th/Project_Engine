@@ -16,7 +16,8 @@ public:
 	void Render();
 
 	HDC GetHDC() { return mHdc; }
-
+	UINT GetWidth() { return mWidth; }
+	UINT GetHeight() { return mHeight; }
 
 private:
 	HWND mHwnd;

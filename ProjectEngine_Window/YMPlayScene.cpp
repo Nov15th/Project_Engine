@@ -9,6 +9,10 @@
 #include "YMObject.h"
 #include "YMTexture.h"
 #include "YMResources.h"
+#include "YMPlayerScript.h"
+#include "YMCamera.h"
+#include "YMRenderer.h"
+
 namespace YM
 {
 	PlayScene::PlayScene()
@@ -19,32 +23,26 @@ namespace YM
 	}
 	void PlayScene::Initialize()
 	{
-		//bg = new Player();
-		//Transform* tr
-		//	= bg->AddComponent<Transform>();
-		//tr->SetPosition(Vector2(0, 0));
-		//tr->SetName(L"TR");
-		//SpriteRenderer* sr
-		//	= bg->AddComponent<SpriteRenderer>();
-		//sr->SetName(L"SR");
-		//sr->ImageLoad(L"C:\\Users\\Choi_young ming\\source\\repos\\ProjectEngine\\Resources\\CloudOcean.png");
-		//AddGameObject(bg, enums::eLayerType::BackGround);
-
 		//게임 오브젝트 만들기 전에 전부 리소스를 로드해두면 좋다.
+		GameObject* camera = Object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(344.0f, 442.0f));
+		Camera* cameraComp = camera->AddComponent<Camera>();
 
+		renderer::mainCamera = cameraComp;
+		//camera->AddComponent<PlayerScript>();
 
-		bg = Object::Instantiate<Player>(enums::eLayerType::BackGround, Vector2(500.0f,500.0f));
-		SpriteRenderer* sr
-			= bg->AddComponent<SpriteRenderer>();
-		graphcis::Texture* bg = Resources::Find<graphcis::Texture>(L"BG");
-		sr->SetTexture(bg);
-		//graphcis::Texture* tex = new graphcis::Texture();
-		//tex->Load(L"C:\\Users\\Choi_young ming\\source\\repos\\ProjectEngine\\Resources\\CloudOcean.png");
+		mPlayer = Object::Instantiate<Player>(enums::eLayerType::Player);
+		SpriteRenderer* sr = mPlayer->AddComponent<SpriteRenderer>();
+		sr->SetSize(Vector2(3.0f, 3.0f));
+		graphcis::Texture* pacman = Resources::Find<graphcis::Texture>(L"PacMan");
+		sr->SetTexture(pacman);
+		mPlayer->AddComponent<PlayerScript>();
+	
+		GameObject* bg = Object::Instantiate<Player>(enums::eLayerType::BackGround);
+		SpriteRenderer* bgsr = bg->AddComponent<SpriteRenderer>();
+		bgsr->SetSize(Vector2(3.0f, 3.0f));
+		graphcis::Texture* bgtexture = Resources::Find<graphcis::Texture>(L"PM_BG");
+		bgsr->SetTexture(bgtexture);
 
-
-		//sr->SetName(L"SR");
-		//sr->ImageLoad(L"C:\\Users\\Choi_young ming\\source\\repos\\ProjectEngine\\Resources\\CloudOcean.png");
-		//AddGameObject(bg, enums::eLayerType::BackGround);
 	}
 	void PlayScene::Update()
 	{
@@ -61,15 +59,15 @@ namespace YM
 	void PlayScene::Render(HDC hdc)
 	{
 		Scene::Render(hdc);
-		wchar_t str[50] = L"Play Scene";
-		TextOut(hdc, 100, 100, str, 10);
+		//wchar_t str[50] = L"Play Scene";
+		//TextOut(hdc, 0, 20, str, 10);
 	}
 	void PlayScene::OnEnter()
 	{
 	}
 	void PlayScene::OnExit()
 	{
-		Transform* tr = bg->GetComponent<Transform>();
+		Transform* tr = mPlayer->GetComponent<Transform>();
 		tr->SetPosition(Vector2( 0, 0 ));
 	}
 }

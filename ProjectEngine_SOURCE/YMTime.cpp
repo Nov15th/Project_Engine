@@ -23,18 +23,18 @@ namespace YM
 	}
 	void Time::Render(HDC hdc)
 	{
-		static float time = 0.0f;
-
-		time += DeltaTimeValue;
-		float fps = 1.0f / DeltaTimeValue;
-
-		wchar_t str[50] = L"";
-		swprintf(str, 50, L"TIME : %f", time);
-		int len = wcsnlen_s(str, 50);
-
-		
-
-		TextOut(hdc, 500, 500, str, len);
+		//static float time = 0.0f;
+		//
+		//time += DeltaTimeValue;
+		//float fps = 1.0f / DeltaTimeValue;
+		//
+		//wchar_t str[50] = L"";
+		//swprintf(str, 50, L"TIME : %f", time);
+		//int len = wcsnlen_s(str, 50);
+		//
+		//
+		//
+		//TextOut(hdc, 0, 0, str, len);
 	}
 }
 

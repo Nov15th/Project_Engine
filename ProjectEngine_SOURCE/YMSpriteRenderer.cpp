@@ -2,10 +2,11 @@
 #include "YMGameObject.h"
 #include "YMTransform.h"
 #include "YMTexture.h"
+#include "YMRenderer.h"
 namespace YM
 {
 	SpriteRenderer::SpriteRenderer()
-		:Component()
+		:Component(enums::eComponentType::SpriteRender)
 		, mTexture(nullptr)
 		, mSize(Vector2::One)
 
@@ -33,9 +34,10 @@ namespace YM
 		
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
-
+		pos = renderer::mainCamera->CalulatePosition(pos);
 		if (mTexture->GetTextureType() == graphcis::Texture::eTextureType::Bmp)
 		{
+			
 			TransparentBlt(hdc, pos.x, pos.y
 				, mTexture->GetWidth(), mTexture->GetHeight()
 				, mTexture->GetHdc(), 0, 0, mTexture->GetWidth(), mTexture->GetHeight()

@@ -20,4 +20,13 @@ namespace YM::enums
 		End,
 
 	};
+
+	enum class eComponentType
+	{
+		Transform,
+		SpriteRender,
+		Script,
+		Camera,
+		End,
+	};
 }

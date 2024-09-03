@@ -135,11 +135,13 @@
     <ClInclude Include="YMLoadResources.h" />
     <ClInclude Include="YMLoadScenes.h" />
     <ClInclude Include="YMPlayer.h" />
+    <ClInclude Include="YMPlayerScript.h" />
     <ClInclude Include="YMPlayScene.h" />
     <ClInclude Include="YMTitleScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="YMPlayer.cpp" />
+    <ClCompile Include="YMPlayerScript.cpp" />
     <ClCompile Include="YMPlayScene.cpp" />
     <ClCompile Include="YMTitleScene.cpp" />
   </ItemGroup>

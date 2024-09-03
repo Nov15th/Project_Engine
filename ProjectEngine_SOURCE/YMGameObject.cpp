@@ -6,6 +6,7 @@ namespace YM
 {
 	GameObject::GameObject()
 	{
+		mComponents.resize((UINT)enums::eComponentType::End);
 		initializeTransform();
 	}
 	GameObject::~GameObject()
@@ -21,6 +22,10 @@ namespace YM
 	{
 		for (Component* comp : mComponents)
 		{
+			if (comp == nullptr)
+			{
+				continue;
+			}
 			comp->Initialize();
 		}
 	}
@@ -29,6 +34,10 @@ namespace YM
 	{
 		for (Component* comp : mComponents)
 		{
+			if (comp == nullptr)
+			{
+				continue;
+			}
 			comp->Update();
 		}
 	}
@@ -36,6 +45,10 @@ namespace YM
 	{
 		for (Component* comp : mComponents)
 		{
+			if (comp == nullptr)
+			{
+				continue;
+			}
 			comp->LateUpdate();
 		}
 	}
@@ -43,6 +56,10 @@ namespace YM
 	{
 		for (Component* comp : mComponents)
 		{
+			if (comp == nullptr)
+			{
+				continue;
+			}
 			comp->Render(hdc);
 		}
 	}

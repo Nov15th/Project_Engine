@@ -144,8 +144,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
-   const UINT width = 1600;
-   const UINT height = 900;
+   const UINT width = 672;
+   const UINT height = 846;
 
 
    //hWnd를 여러개 생성하면 창을 여러개 띄우는것도 가능하다

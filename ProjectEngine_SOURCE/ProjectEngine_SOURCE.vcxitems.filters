@@ -1,13 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="$(MSBuildThisFileDirectory)peApplication.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)YMTransform.cpp">
-      <Filter>Component</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)YMSpriteRenderer.cpp">
-      <Filter>Component</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)YMEntity.cpp">
       <Filter>Common</Filter>
     </ClCompile>
@@ -44,15 +37,26 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)YmTexture.cpp">
       <Filter>Resource\Texture</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMScript.cpp">
+      <Filter>Component\Script</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMTransform.cpp">
+      <Filter>Component\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMSpriteRenderer.cpp">
+      <Filter>Component\SpriteRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)peApplication.cpp">
+      <Filter>High Level Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)YmCamera.cpp">
+      <Filter>Component\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMRenderer.cpp">
+      <Filter>Renderer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="$(MSBuildThisFileDirectory)peApplication.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)YMTransform.h">
-      <Filter>Component</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)YMSpriteRenderer.h">
-      <Filter>Component</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)YMEntity.h">
       <Filter>Common</Filter>
     </ClInclude>
@@ -98,6 +102,24 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)YMTexture.h">
       <Filter>Resource\Texture</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMScript.h">
+      <Filter>Component\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMTransform.h">
+      <Filter>Component\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMSpriteRenderer.h">
+      <Filter>Component\SpriteRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)peApplication.h">
+      <Filter>High Level Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMCamera.h">
+      <Filter>Component\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMRenderer.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Component">
@@ -123,6 +145,24 @@
     </Filter>
     <Filter Include="Resource\Texture">
       <UniqueIdentifier>{e042e53d-8c32-4bcb-a0a9-30f4c69ad815}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Script">
+      <UniqueIdentifier>{774fbee3-f4b6-4e55-97ba-be1059568f80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Transform">
+      <UniqueIdentifier>{dccb0e5e-ea28-42cf-a6ae-dbe3a0c0bea0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\SpriteRenderer">
+      <UniqueIdentifier>{eb3f16bc-e6fe-4aaa-8e73-0a909528fe09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="High Level Interface">
+      <UniqueIdentifier>{f33fff7c-bffc-42b4-91ae-b3e37ce1a69d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Camera">
+      <UniqueIdentifier>{72a6df47-ddbd-44da-86e1-afc9a5e2090f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer">
+      <UniqueIdentifier>{d95a2936-1af3-4c1f-bb9b-451ce9dc56e6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

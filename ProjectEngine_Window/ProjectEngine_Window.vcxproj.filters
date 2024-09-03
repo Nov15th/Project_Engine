@@ -4,6 +4,9 @@
     <Filter Include="Scenes">
       <UniqueIdentifier>{e2d05b00-4834-4641-bec2-c42c9b4bf0e3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Script">
+      <UniqueIdentifier>{da376979-2757-48df-90ee-2c11084e18df}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="YMLoadScenes.h">
@@ -17,6 +20,9 @@
       <Filter>Scenes</Filter>
     </ClInclude>
     <ClInclude Include="YMLoadResources.h" />
+    <ClInclude Include="YMPlayerScript.h">
+      <Filter>Script</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="YMPlayer.cpp" />
@@ -25,6 +31,9 @@
     </ClCompile>
     <ClCompile Include="YMTitleScene.cpp">
       <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="YMPlayerScript.cpp">
+      <Filter>Script</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
