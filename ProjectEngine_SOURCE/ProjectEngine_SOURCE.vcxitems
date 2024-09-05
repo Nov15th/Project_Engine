@@ -16,6 +16,8 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)peApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMAnimation.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMAnimator.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMCamera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMEntity.h" />
@@ -38,6 +40,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)peApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMAnimation.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMAnimator.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YmCamera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMEntity.cpp" />

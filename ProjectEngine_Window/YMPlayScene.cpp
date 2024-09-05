@@ -12,6 +12,7 @@
 #include "YMPlayerScript.h"
 #include "YMCamera.h"
 #include "YMRenderer.h"
+#include "YMAnimator.h"
 
 namespace YM
 {
@@ -31,10 +32,20 @@ namespace YM
 		//camera->AddComponent<PlayerScript>();
 
 		mPlayer = Object::Instantiate<Player>(enums::eLayerType::Player);
-		SpriteRenderer* sr = mPlayer->AddComponent<SpriteRenderer>();
-		sr->SetSize(Vector2(3.0f, 3.0f));
-		graphcis::Texture* pacman = Resources::Find<graphcis::Texture>(L"PacMan");
-		sr->SetTexture(pacman);
+		/*SpriteRenderer* sr = mPlayer->AddComponent<SpriteRenderer>();
+		sr->SetSize(Vector2(3.0f, 3.0f));*/
+		graphcis::Texture* pacman = Resources::Find<graphcis::Texture>(L"Cat");
+		Animator* animator = mPlayer->AddComponent<Animator>();
+		animator->CreatAnimation(L"CatFrontMove"
+			, pacman
+			, Vector2(0.0f, 0.0f)
+			, Vector2(32.0f, 32.0f)
+			, Vector2::Zero
+			, 4
+			, 0.3f);
+		animator->PlayAnimation(L"CatFrontMove", true);
+		/*sr->SetTexture(pacman);*/
+
 		mPlayer->AddComponent<PlayerScript>();
 	
 		GameObject* bg = Object::Instantiate<Player>(enums::eLayerType::BackGround);

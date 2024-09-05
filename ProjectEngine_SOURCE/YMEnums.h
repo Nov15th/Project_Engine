@@ -16,6 +16,7 @@ namespace YM::enums
 	{
 		Texture,
 		AudioClip,
+		Animation,
 		Prefab,
 		End,
 
@@ -25,6 +26,7 @@ namespace YM::enums
 	{
 		Transform,
 		SpriteRender,
+		Animator,
 		Script,
 		Camera,
 		End,

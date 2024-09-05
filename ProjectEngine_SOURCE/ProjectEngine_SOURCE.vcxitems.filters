@@ -7,9 +7,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)YMMath.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)YMComponent.cpp">
-      <Filter>Component</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)YMGameObject.cpp">
       <Filter>GameObject</Filter>
     </ClCompile>
@@ -27,12 +24,6 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)YMLayer.cpp">
       <Filter>Layer</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)YMResource.cpp">
-      <Filter>Resource</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)YMResources.cpp">
-      <Filter>Resource</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)YmTexture.cpp">
       <Filter>Resource\Texture</Filter>
@@ -55,6 +46,21 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)YMRenderer.cpp">
       <Filter>Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMAnimator.cpp">
+      <Filter>Component\Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMAnimation.cpp">
+      <Filter>Resource\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMResources.cpp">
+      <Filter>Resource\ResourceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMComponent.cpp">
+      <Filter>Component\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMResource.cpp">
+      <Filter>Resource\Base</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)YMEntity.h">
@@ -65,9 +71,6 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)YMMath.h">
       <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)YMComponent.h">
-      <Filter>Component</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)YMGameObject.h">
       <Filter>GameObject</Filter>
@@ -93,12 +96,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)YMObject.h">
       <Filter>Common</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)YMResource.h">
-      <Filter>Resource</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)YMResources.h">
-      <Filter>Resource</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)YMTexture.h">
       <Filter>Resource\Texture</Filter>
     </ClInclude>
@@ -119,6 +116,21 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)YMRenderer.h">
       <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMAnimator.h">
+      <Filter>Component\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMAnimation.h">
+      <Filter>Resource\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMResources.h">
+      <Filter>Resource\ResourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMComponent.h">
+      <Filter>Component\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMResource.h">
+      <Filter>Resource\Base</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +175,21 @@
     </Filter>
     <Filter Include="Renderer">
       <UniqueIdentifier>{d95a2936-1af3-4c1f-bb9b-451ce9dc56e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Animator">
+      <UniqueIdentifier>{2efcac44-f995-47f1-912f-66ab77de17a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Animation">
+      <UniqueIdentifier>{f6565da4-e812-43fc-8f33-0c0fc608c664}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\ResourceManager">
+      <UniqueIdentifier>{fd5cd454-a3b6-41ac-b0ce-01561d47d0e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Base">
+      <UniqueIdentifier>{05a7795b-bc5a-405c-9055-983fabbe160a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Base">
+      <UniqueIdentifier>{0c295c8a-a852-4714-8ac9-455d4998d2a9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
