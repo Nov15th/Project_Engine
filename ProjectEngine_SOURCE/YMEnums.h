@@ -9,6 +9,7 @@ namespace YM::enums
 		//True,
 		//Character,
 		Player,
+		Particle,
 		Max=16,
 	};
 

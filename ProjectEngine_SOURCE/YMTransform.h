@@ -20,9 +20,17 @@ namespace YM
 
 		void SetPosition(Vector2 pos) { mPosition.x = pos.x, mPosition.y = pos.y; }
 		Vector2 GetPosition() { return mPosition; }
+		
+		Vector2 GetScale() { return mScale; }
+		float GetRotation() { return mRotation; }
+
+		void SetScale(Vector2 scale) { mScale = scale; }
+		void SetRotation(float rotation) { mRotation = rotation; }
 
 	private:
 		Vector2 mPosition;
+		Vector2 mScale;
+		float mRotation;
 	};
 }
 

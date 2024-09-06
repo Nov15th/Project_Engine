@@ -5,6 +5,7 @@
 #include "YMAnimator.h"
 #include "YMRenderer.h"
 //#include "YMCamera.h"
+#include "YMTexture.h"
 namespace YM
 {
 	Animation::Animation()
@@ -58,34 +59,71 @@ namespace YM
 		GameObject* gameObj = mAnimator->GetOwner();
 		Transform* tr = gameObj->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
+		float rot = tr->GetRotation();
+		Vector2 scale = tr->GetScale();
 
 		if (renderer::mainCamera)
 		{
 			pos = renderer::mainCamera->CalulatePosition(pos);
 		}
-		//기본 포멧
-		BLENDFUNCTION func = {};
-		func.BlendOp = AC_SRC_OVER;
-		func.BlendFlags = 0;
-		func.AlphaFormat = AC_SRC_ALPHA;
-		func.SourceConstantAlpha = 125; //alpah -> 0(transparent)~255(opaque)
+
 
 		Sprite sprite = mAnimationSheet[mIndex];
-		HDC imHDC = mTexture->GetHdc();
-		AlphaBlend(hdc
-			, pos.x, pos.y
-			, sprite.size.x * 5
-			, sprite.size.y * 5
-			, imHDC
-			, sprite.leftTop.x
-			, sprite.leftTop.y
-			, sprite.size.x
-			, sprite.size.y
-			, func);
+		graphcis::Texture::eTextureType type = mTexture->GetTextureType();
+		if (type == graphcis::Texture::eTextureType::Bmp)
+		{
+			//기본 포멧
+			BLENDFUNCTION func = {};
+			func.BlendOp = AC_SRC_OVER;
+			func.BlendFlags = 0;
+			func.AlphaFormat = AC_SRC_ALPHA;
+			func.SourceConstantAlpha = 255; //alpah -> 0(transparent)~255(opaque)
+
+			
+			HDC imHDC = mTexture->GetHdc();
+			AlphaBlend(hdc
+				, pos.x - (sprite.size.x / 2.0f)
+				, pos.y-(sprite.size.y/2.0f)
+				, sprite.size.x * scale.x 
+				, sprite.size.y * scale.y
+				, imHDC
+				, sprite.leftTop.x
+				, sprite.leftTop.y
+				, sprite.size.x
+				, sprite.size.y
+				, func);
+		}
+		else if (type == graphcis::Texture::eTextureType::Png)
+		{
+			//내가 원하는 픽셀을 투명화 시킬때
+			Gdiplus::ImageAttributes imgAtt = {};
+			//투명화 시킬 픽셀 선택
+			imgAtt.SetColorKey(Gdiplus::Color(100, 100, 100), Gdiplus::Color(255, 255, 255));
 
 
+			Gdiplus::Graphics graphics(hdc);
+			graphics.TranslateTransform(pos.x, pos.y);
+			graphics.RotateTransform(rot);
+			graphics.TranslateTransform(-pos.x, -pos.y);
 
 
+			graphics.DrawImage(mTexture->GetImage(),
+				Gdiplus::Rect
+				(
+					pos.x - (sprite.size.x / 2.0f)
+					, pos.y - (sprite.size.y / 2.0f)
+					, sprite.size.x * scale.x
+					, sprite.size.y * scale.y
+				)
+				, sprite.leftTop.x
+				, sprite.leftTop.y
+				, sprite.size.x
+				, sprite.size.y
+				, Gdiplus::UnitPixel
+				, nullptr
+			);
+		}
+		
 	}
 	void Animation::CreatAnimation(const std::wstring& name, graphcis::Texture* spriteSheet, Vector2 leftTop, Vector2 size, Vector2 offset, UINT spriteLenght, float duration)
 	{
