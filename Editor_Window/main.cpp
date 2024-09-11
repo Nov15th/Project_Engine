@@ -167,7 +167,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    //load Scenes
    YM::LoadResources();
    YM::LoadScenes();
-
+   int a = 0;
+   srand((unsigned) & a);
    return TRUE;
 }
 

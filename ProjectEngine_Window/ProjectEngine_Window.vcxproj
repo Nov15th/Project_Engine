@@ -136,6 +136,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="YMCat.h" />
+    <ClInclude Include="YMCatScript.h" />
     <ClInclude Include="YMLoadResources.h" />
     <ClInclude Include="YMLoadScenes.h" />
     <ClInclude Include="YMPlayer.h" />
@@ -144,6 +146,8 @@
     <ClInclude Include="YMTitleScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="YMCat.cpp" />
+    <ClCompile Include="YMCatScript.cpp" />
     <ClCompile Include="YMPlayer.cpp" />
     <ClCompile Include="YMPlayerScript.cpp" />
     <ClCompile Include="YMPlayScene.cpp" />

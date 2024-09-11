@@ -8,6 +8,7 @@ namespace YM::enums
 		BackGround,
 		//True,
 		//Character,
+		Animal,
 		Player,
 		Particle,
 		Max=16,

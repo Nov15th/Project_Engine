@@ -30,6 +30,12 @@
     <ClInclude Include="YMLoadResources.h">
       <Filter>Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="YMCat.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="YMCatScript.h">
+      <Filter>Script</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="YMPlayScene.cpp">
@@ -43,6 +49,12 @@
     </ClCompile>
     <ClCompile Include="YMPlayer.cpp">
       <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="YMCat.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="YMCatScript.cpp">
+      <Filter>Script</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

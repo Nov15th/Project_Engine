@@ -13,6 +13,8 @@
 #include "YMCamera.h"
 #include "YMRenderer.h"
 #include "YMAnimator.h"
+#include "YMCat.h"
+#include "YMCatScript.h"
 
 namespace YM
 {
@@ -103,18 +105,93 @@ namespace YM
 		/*sr->SetTexture(pacman);*/
 
 
-		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(300.0f, 300.0f));
+		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(100.0f, 100.0f));
 		mPlayer->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
 		mPlayer->GetComponent<Transform>()->SetRotation(0.0f);
 		
 
 
-		GameObject* bg = Object::Instantiate<Player>(enums::eLayerType::Particle);
-		SpriteRenderer* bgsr = bg->AddComponent<SpriteRenderer>();
-		//bgsr->SetSize(Vector2::One);
-		graphcis::Texture* bgtexture = Resources::Find<graphcis::Texture>(L"Bubble");
-		bgsr->SetTexture(bgtexture);
+		//GameObject* bg = Object::Instantiate<Player>(enums::eLayerType::Particle);
+		//SpriteRenderer* bgsr = bg->AddComponent<SpriteRenderer>();
+		////bgsr->SetSize(Vector2::One);
+		//graphcis::Texture* bgtexture = Resources::Find<graphcis::Texture>(L"Bubble");
+		//bgsr->SetTexture(bgtexture);
 
+		///Cat
+		Cat* cat = Object::Instantiate<Cat>(enums::eLayerType::Animal);
+		cat->AddComponent<CatScript>();
+
+
+		graphcis::Texture* catTex = Resources::Find<graphcis::Texture>(L"Cat");
+		Animator* catanimator = cat->AddComponent<Animator>();
+		catanimator->CreatAnimation(L"CatDownWalk"
+			, catTex
+			, Vector2(0.0f, 0.0f)
+			, Vector2(32.0f, 32.0f)
+			, Vector2::Zero
+			, 4
+			, 0.1f);
+
+		catanimator->CreatAnimation(L"CatRightWalk"
+			, catTex
+			, Vector2(0.0f, 32.0f)
+			, Vector2(32.0f, 32.0f)
+			, Vector2::Zero
+			, 4
+			, 0.1f);
+
+		catanimator->CreatAnimation(L"CatUpWalk"
+			, catTex
+			, Vector2(0.0f, 64.0f)
+			, Vector2(32.0f, 32.0f)
+			, Vector2::Zero
+			, 4
+			, 0.1f);
+
+		catanimator->CreatAnimation(L"CatLeftWalk"
+			, catTex
+			, Vector2(0.0f, 96.0f)
+			, Vector2(32.0f, 32.0f)
+			, Vector2::Zero
+			, 4
+			, 0.1f);
+
+		catanimator->CreatAnimation(L"CatSitDown"
+			, catTex
+			, Vector2(0.0f, 128.0f)
+			, Vector2(32.0f, 32.0f)
+			, Vector2::Zero
+			, 4
+			, 0.1f);
+
+		catanimator->CreatAnimation(L"CatGrooming"
+			, catTex
+			, Vector2(0.0f, 160.0f)
+			, Vector2(32.0f, 32.0f)
+			, Vector2::Zero
+			, 4
+			, 0.1f);
+
+		catanimator->CreatAnimation(L"CatLayDown"
+			, catTex
+			, Vector2(0.0f, 192.0f)
+			, Vector2(32.0f, 32.0f)
+			, Vector2::Zero
+			, 4
+			, 0.1f);
+
+
+		catanimator->PlayAnimation(L"CatSitDown", false);
+
+		cat->GetComponent<Transform>()->SetPosition(Vector2(300.0f, 300.0f));
+
+		/*sr->SetTexture(pacman);*/
+
+
+
+
+
+		Scene::Initialize();
 	}
 	void PlayScene::Update()
 	{
