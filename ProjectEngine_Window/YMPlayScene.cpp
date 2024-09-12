@@ -34,6 +34,8 @@ namespace YM
 		Camera* cameraComp = camera->AddComponent<Camera>();
 		renderer::mainCamera = cameraComp;
 
+		
+
 		mPlayer = Object::Instantiate<Player>(enums::eLayerType::Player);
 		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
 
@@ -60,9 +62,11 @@ namespace YM
 		Cat* cat = Object::Instantiate<Cat>(enums::eLayerType::Animal);
 		cat->AddComponent<CatScript>();
 
-
+		cameraComp->SetTarget(cat);
 		graphcis::Texture* catTex = Resources::Find<graphcis::Texture>(L"Cat");
 		Animator* catanimator = cat->AddComponent<Animator>();
+		
+
 		catanimator->CreatAnimation(L"CatDownWalk", catTex
 			, Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
 		catanimator->CreatAnimation(L"CatRightWalk", catTex
