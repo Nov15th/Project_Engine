@@ -28,7 +28,7 @@ namespace YM
 		void Idle();
 		void Move();
 		void GiveWater();
-
+		void AttackEffect();
 
 	private:
 		eState mState;

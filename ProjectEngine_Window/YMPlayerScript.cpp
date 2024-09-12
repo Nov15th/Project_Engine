@@ -4,6 +4,11 @@
 #include "YMTime.h"
 #include "YMGameObject.h"
 #include "YMAnimator.h"
+#include "YMCat.h"
+#include "YMCatScript.h"
+#include "YMObject.h"
+#include "YMResources.h"
+
 
 namespace YM
 {
@@ -42,6 +47,7 @@ namespace YM
 		case YM::PlayerScript::eState::Attack:
 			break;
 		default:
+			assert(false);
 			break;
 		}
 
@@ -64,21 +70,7 @@ namespace YM
 			Vector2 mousePos = Input::GetMousePosition();
 
 		}
-		/*if (Input::GetKey(eKeyCode::Left))
-		{
-			mAnimator->PlayAnimation(L"CatLeftWalk");
-			mState = eState::Walk;
-		}
-		if (Input::GetKey(eKeyCode::Up))
-		{
-			mAnimator->PlayAnimation(L"CatUpWalk");
-			mState = eState::Walk;
-		}
-		if(Input::GetKey(eKeyCode::Down))
-		{
-			mAnimator->PlayAnimation(L"CatDownWalk");
-			mState = eState::Walk;
-		}*/
+		
 
 		
 	}
@@ -126,5 +118,32 @@ namespace YM
 			mState = eState::Idle;
 			mAnimator->PlayAnimation(L"PlayerIdle", false);
 		}
+	}
+	void PlayerScript::AttackEffect()
+	{
+		Cat* cat = Object::Instantiate<Cat>(enums::eLayerType::Animal);
+		cat->AddComponent<CatScript>();
+
+
+		graphcis::Texture* catTex = Resources::Find<graphcis::Texture>(L"Cat");
+		Animator* catanimator = cat->AddComponent<Animator>();
+		catanimator->CreatAnimation(L"CatDownWalk", catTex
+			, Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		catanimator->CreatAnimation(L"CatRightWalk", catTex
+			, Vector2(0.0f, 32.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		catanimator->CreatAnimation(L"CatUpWalk", catTex
+			, Vector2(0.0f, 64.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		catanimator->CreatAnimation(L"CatLeftWalk", catTex
+			, Vector2(0.0f, 96.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		catanimator->CreatAnimation(L"CatSitDown", catTex
+			, Vector2(0.0f, 128.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		catanimator->CreatAnimation(L"CatGrooming", catTex
+			, Vector2(0.0f, 160.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		catanimator->CreatAnimation(L"CatLayDown", catTex
+			, Vector2(0.0f, 192.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+
+		catanimator->PlayAnimation(L"CatSitDown", false);
+		cat->GetComponent<Transform>()->SetPosition(Vector2(300.0f, 300.0f));
+		cat->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
 	}
 }

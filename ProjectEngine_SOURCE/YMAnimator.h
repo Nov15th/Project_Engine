@@ -18,7 +18,7 @@ namespace YM
 			{
 				if (mEvent)
 				{
-					mEvent;
+					mEvent();
 				}
 			}
 			std::function<void()> mEvent;
@@ -27,9 +27,9 @@ namespace YM
 
 		struct Events
 		{
-			Event mStartEvent;
-			Event mCompleteEvent;
-			Event mEndEvent;
+			Event StartEvent;
+			Event CompleteEvent;
+			Event EndEvent;
 		};
 
 
@@ -53,7 +53,18 @@ namespace YM
 
 		Animation* FindAnimation(const std::wstring& name);
 		void PlayAnimation(const std::wstring& name, bool loop = true);
+
+		Events* FindEvents(const std::wstring& name);
+		std::function<void()>& GetStartEvent(const std::wstring& name);
+		std::function<void()>& GetCompleteEvent(const std::wstring& name);
+		std::function<void()>& GetEndEvent(const std::wstring& name);
+
+
 		bool isComplete() { return mActiveAnimation->IsComplete(); }
+
+
+
+
 	private:
 
 		std::map<std::wstring, Animation*> mAnimations;

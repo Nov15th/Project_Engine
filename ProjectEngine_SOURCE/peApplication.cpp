@@ -2,6 +2,7 @@
 #include "YMInput.h"
 #include "YMTime.h"
 #include "YMSceneManager.h"
+#include "YMResources.h"
 
 namespace YM
 {
@@ -80,5 +81,11 @@ namespace YM
 
 		//백 버퍼에 있는것을 원본 버퍼에 복사(그려준다)
 		BitBlt(mHdc, 0, 0, mWidth, mHeight, mBackHdc, 0, 0, SRCCOPY);
+	}
+
+	void Application::Release()
+	{
+		SceneManager::Release();
+		Resources::Release();
 	}
 }

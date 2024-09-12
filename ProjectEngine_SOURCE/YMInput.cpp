@@ -7,7 +7,7 @@ namespace YM
 {
 
 	std::vector<Input::Key> Input::Keys = {};
-	math::Vector2 mMousePosition = math::Vector2::One;
+	math::Vector2 Input::mMousePosition = math::Vector2::One;
 	int ASCII[(UINT)eKeyCode::End] =
 	{
 		'Q', 'W','E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P',
