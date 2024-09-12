@@ -7,13 +7,8 @@ namespace YM
 {
 	void LoadResources()
 	{
-		//Resources::Load<graphcis::Texture>(L"BG", L"..\\Resources\\CloudOcean.png");
-		Resources::Load<graphcis::Texture>(L"PacMan", L"..\\Resources\\img\\pacman\\0.png");
-		Resources::Load<graphcis::Texture>(L"PM_BG", L"..\\Resources\\img\\map\\map_pure.png");
 		Resources::Load<graphcis::Texture>(L"Cat", L"..\\Resources\\ChickenAlpha.bmp");
-		Resources::Load<graphcis::Texture>(L"Bubble", L"..\\Resources\\Bubble.png");
-		Resources::Load<graphcis::Texture>(L"MapleEffect", L"..\\Resources\\ezgif.com-gif-maker.png");
-
+		Resources::Load<graphcis::Texture>(L"Player", L"..\\Resources\\Player.bmp");
 	}
 }
 

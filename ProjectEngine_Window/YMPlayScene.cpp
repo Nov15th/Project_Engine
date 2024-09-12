@@ -29,93 +29,27 @@ namespace YM
 		//게임 오브젝트 만들기 전에 전부 리소스를 로드해두면 좋다.
 		GameObject* camera = Object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(344.0f, 442.0f));
 		Camera* cameraComp = camera->AddComponent<Camera>();
-
 		renderer::mainCamera = cameraComp;
-		//camera->AddComponent<PlayerScript>();
 
 		mPlayer = Object::Instantiate<Player>(enums::eLayerType::Player);
-		/*SpriteRenderer* sr = mPlayer->AddComponent<SpriteRenderer>();
-		sr->SetSize(Vector2(3.0f, 3.0f));*/
 		mPlayer->AddComponent<PlayerScript>();
 
-		/*graphcis::Texture* pacman = Resources::Find<graphcis::Texture>(L"MapleEffect");
-		Animator* animator = mPlayer->AddComponent<Animator>();
-		animator->CreatAnimation(L"CatFrontMove"
-			, pacman
-			, Vector2(0.0f, 0.0f)
-			, Vector2(386.0f, 246.0f)
-			, Vector2::Zero
-			, 8
-			, 0.05f);
+		graphcis::Texture* playerTex = Resources::Find<graphcis::Texture>(L"Player");
+		Animator* playerAnimator = mPlayer->AddComponent<Animator>();
+		playerAnimator->CreatAnimation(L"PlayerIdle", playerTex,
+			Vector2(2000.0f, 250.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 1, 0.1f);
+		playerAnimator->CreatAnimation(L"PlantGiveWater", playerTex,
+			Vector2(0.0f, 2000.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 12, 0.1f);
+		playerAnimator->PlayAnimation(L"PlayerIdle", false);
 
-		animator->PlayAnimation(L"CatFrontMove", true);*/
-
-		graphcis::Texture* pacman = Resources::Find<graphcis::Texture>(L"Cat");
-		Animator* animator = mPlayer->AddComponent<Animator>();
-		animator->CreatAnimation(L"CatDownWalk"
-			, pacman
-			, Vector2(0.0f, 0.0f)
-			, Vector2(32.0f, 32.0f)
-			, Vector2::Zero
-			, 4
-			, 0.1f);
-
-		animator->CreatAnimation(L"CatRightWalk"
-			, pacman
-			, Vector2(0.0f, 32.0f)
-			, Vector2(32.0f, 32.0f)
-			, Vector2::Zero
-			, 4
-			, 0.1f);
-
-		animator->CreatAnimation(L"CatUpWalk"
-			, pacman
-			, Vector2(0.0f, 64.0f)
-			, Vector2(32.0f, 32.0f)
-			, Vector2::Zero
-			, 4
-			, 0.1f);
-
-		animator->CreatAnimation(L"CatLeftWalk"
-			, pacman
-			, Vector2(0.0f, 96.0f)
-			, Vector2(32.0f, 32.0f)
-			, Vector2::Zero
-			, 4
-			, 0.1f);
-
-		animator->CreatAnimation(L"CatSitDown"
-			, pacman
-			, Vector2(0.0f, 128.0f)
-			, Vector2(32.0f, 32.0f)
-			, Vector2::Zero
-			, 4
-			, 0.1f);
-
-		animator->CreatAnimation(L"CatGrooming"
-			, pacman
-			, Vector2(0.0f, 160.0f)
-			, Vector2(32.0f, 32.0f)
-			, Vector2::Zero
-			, 4
-			, 0.1f);
-
-		animator->PlayAnimation(L"CatSitDown", false);
-
-		/*sr->SetTexture(pacman);*/
+		/*sr->SetTexture(playerTex);*/
 
 
 		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(100.0f, 100.0f));
-		mPlayer->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
+		mPlayer->GetComponent<Transform>()->SetScale(Vector2(1.0f, 1.0f));
 		mPlayer->GetComponent<Transform>()->SetRotation(0.0f);
 		
 
-
-		//GameObject* bg = Object::Instantiate<Player>(enums::eLayerType::Particle);
-		//SpriteRenderer* bgsr = bg->AddComponent<SpriteRenderer>();
-		////bgsr->SetSize(Vector2::One);
-		//graphcis::Texture* bgtexture = Resources::Find<graphcis::Texture>(L"Bubble");
-		//bgsr->SetTexture(bgtexture);
 
 		///Cat
 		Cat* cat = Object::Instantiate<Cat>(enums::eLayerType::Animal);
@@ -185,7 +119,7 @@ namespace YM
 
 		cat->GetComponent<Transform>()->SetPosition(Vector2(300.0f, 300.0f));
 
-		/*sr->SetTexture(pacman);*/
+		/*sr->SetTexture(playerTex);*/
 
 
 

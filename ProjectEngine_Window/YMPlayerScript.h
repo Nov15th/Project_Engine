@@ -9,9 +9,10 @@ namespace YM
 
 		enum class eState
 		{
-			SitDown,
+			Idle,
 			Walk,
 			Sleep,
+			GiveWater,
 			Attack,
 		};
 
@@ -24,14 +25,17 @@ namespace YM
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
-		void SitDown();
+		void Idle();
 		void Move();
-
+		void GiveWater();
 
 
 	private:
 		eState mState;
 		class Animator* mAnimator;
+
+
+
 	};
 }
 

@@ -8,7 +8,7 @@
 namespace YM
 {
 	PlayerScript::PlayerScript()
-		:mState(eState::SitDown)
+		:mState(eState::Idle)
 		, mAnimator(nullptr)
 	{
 	}
@@ -28,13 +28,16 @@ namespace YM
 
 		switch (mState)
 		{
-		case YM::PlayerScript::eState::SitDown:
-			SitDown();
+		case YM::PlayerScript::eState::Idle:
+			Idle();
 			break;
 		case YM::PlayerScript::eState::Walk:
 			Move();
 			break;
 		case YM::PlayerScript::eState::Sleep:
+			break;
+		case YM::PlayerScript::eState::GiveWater:
+			GiveWater();
 			break;
 		case YM::PlayerScript::eState::Attack:
 			break;
@@ -50,14 +53,18 @@ namespace YM
 	void PlayerScript::Render(HDC hdc)
 	{
 	}
-	void PlayerScript::SitDown()
+	void PlayerScript::Idle()
 	{
-		if (Input::GetKey(eKeyCode::Right))
+		if (Input::GetKey(eKeyCode::LButton))
 		{
-			mAnimator->PlayAnimation(L"CatRightWalk");
-			mState = eState::Walk;
+
+			mState = eState::GiveWater;
+			mAnimator->PlayAnimation(L"FrontGiveWater", false);
+
+			Vector2 mousePos = Input::GetMousePosition();
+
 		}
-		if (Input::GetKey(eKeyCode::Left))
+		/*if (Input::GetKey(eKeyCode::Left))
 		{
 			mAnimator->PlayAnimation(L"CatLeftWalk");
 			mState = eState::Walk;
@@ -71,7 +78,7 @@ namespace YM
 		{
 			mAnimator->PlayAnimation(L"CatDownWalk");
 			mState = eState::Walk;
-		}
+		}*/
 
 		
 	}
@@ -107,9 +114,17 @@ namespace YM
 			||Input::GetKeyUp(eKeyCode::Up)
 			||Input::GetKeyUp(eKeyCode::Down))
 		{
-			mState = eState::SitDown;
-			mAnimator->PlayAnimation(L"CatSitDown", false);
+			mState = eState::Idle;
+			mAnimator->PlayAnimation(L"PlayerIdle", false);
 		}
 
+	}
+	void PlayerScript::GiveWater()
+	{
+		if (mAnimator->isComplete())
+		{
+			mState = eState::Idle;
+			mAnimator->PlayAnimation(L"PlayerIdle", false);
+		}
 	}
 }
