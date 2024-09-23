@@ -1,11 +1,23 @@
 #pragma once
 #include "CommonInclude.h"
 #include "YMComponent.h"
+
+
 namespace YM
 {
 	class GameObject
 	{
 	public:
+		
+
+		enum class eState
+		{
+			Active,
+			Paused,
+			Dead,
+			End,
+		};
+
 		GameObject();
 		~GameObject();
 		
@@ -41,24 +53,25 @@ namespace YM
 			return component;
 		}
 
+		eState GetActive() { return mState; }
+		void SetActive(bool power)
+		{
+			if (power == true)
+			{
+				mState = eState::Active;
+			}
+			else
+			{
+				mState = eState::Paused;
+			}
+		}
 
-
-		//void SetPosition(float x, float y)
-		//{
-		//	mX = x;
-		//	mY = y;
-		//}
-		//
-		//float GetPositionX() { return mX; }
-		//float GetPositionY() { return mY; }
+		void Death() { mState = eState::Dead; }
 
 	private:
 		void initializeTransform();
 	private:
-		//// 게임 오브젝트 좌표
-		//float mX;
-		//float mY;
-
+		eState mState;
 		std::vector<Component*> mComponents;
 	};
 

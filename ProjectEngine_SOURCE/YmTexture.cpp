@@ -1,12 +1,39 @@
 #include "YMTexture.h"
 #include "peApplication.h"
+#include "YMResources.h"
 
 extern YM::Application application;
 
 namespace YM::graphcis
 {
+	Texture* Texture::Create(const std::wstring& name, UINT width, UINT height)
+	{
+		Texture* image = Resources::Find<Texture>(name);
+		if (image != nullptr)
+		{
+			return image;
+		}
+		image = new Texture();
+		image->SetName(name);
+		image->SetWidth(width);
+		image->SetHeight(height);
+
+		HDC hdc = application.GetHDC();
+		HWND hwnd = application.GetHwnd();
+
+		image->mBitmap = CreateCompatibleBitmap(hdc, width, height);
+		image->mHdc = CreateCompatibleDC(hdc);
+
+		HBITMAP oldBitmap = (HBITMAP)SelectObject(image->mHdc, image->mBitmap);
+		DeleteObject(oldBitmap);
+
+		Resources::Insert(name+ L"Image", image);
+		return image;
+	}
+
 	Texture::Texture()
 		: Resource(enums::eResourceType::Texture)
+		, mbAlpha(false)
 	{
 
 	}
@@ -28,7 +55,7 @@ namespace YM::graphcis
 			BITMAP info = {};
 			GetObject(mBitmap, sizeof(BITMAP), &info);
 			mWidth = info.bmWidth;
-			mHeight = info.bmWidth;
+			mHeight = info.bmHeight;
 
 			HDC mainDC = application.GetHDC();
 			mHdc = CreateCompatibleDC(mainDC);

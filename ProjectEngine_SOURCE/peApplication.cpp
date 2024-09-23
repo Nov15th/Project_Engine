@@ -58,6 +58,7 @@ namespace YM
 		Update();
 		LateUpdate();
 		Render();
+		Destroy();
 	}
 
 	void Application::Update()
@@ -81,6 +82,11 @@ namespace YM
 
 		//백 버퍼에 있는것을 원본 버퍼에 복사(그려준다)
 		BitBlt(mHdc, 0, 0, mWidth, mHeight, mBackHdc, 0, 0, SRCCOPY);
+	}
+
+	void Application::Destroy()
+	{
+		SceneManager::Destroy();
 	}
 
 	void Application::Release()

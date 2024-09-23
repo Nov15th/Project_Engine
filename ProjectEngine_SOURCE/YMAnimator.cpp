@@ -1,6 +1,6 @@
 #include "YMAnimator.h"
-
-
+#include "YMResources.h"
+#include "YMTexture.h"
 namespace YM
 {
 	Animator::Animator()
@@ -86,6 +86,48 @@ namespace YM
 
 
 		mAnimations.insert(std::make_pair(name, animation));
+	}
+	void Animator::CreatAnimationByFolder(const std::wstring& name, const std::wstring& path, Vector2 offset, float duration)
+	{
+		Animation* animation = nullptr;
+		animation = FindAnimation(name);
+		if (animation != nullptr)
+		{
+			return;
+		}
+
+		int filecount = 0;
+		std::filesystem::path fs(path);
+		std::vector<graphcis::Texture*> images = {};
+		for (auto& p :std::filesystem::recursive_directory_iterator(fs))
+		{
+			std::wstring fileName = p.path().filename();
+			std::wstring fullName = p.path();
+			graphcis::Texture* texture = Resources::Load<graphcis::Texture>(fileName, fullName);
+
+			images.push_back(texture);
+			filecount++;
+		}
+
+
+		UINT sheetWidth = images[0]->GetWidth() * filecount;
+		UINT sheetHeight= images[0]->GetHeight();
+		graphcis::Texture* spriteSheet = graphcis::Texture::Create(name, sheetWidth, sheetHeight);
+
+		UINT imageWidth = images[0]->GetWidth();
+		UINT imageHeight = images[0]->GetHeight();
+
+		for (size_t i = 0; i< images.size(); i++)
+		{
+			BitBlt(spriteSheet->GetHdc(), i * imageWidth, 0
+				, imageWidth, imageHeight
+				, images[i]->GetHdc(), 0, 0, SRCCOPY);
+		}
+
+		CreatAnimation(name, spriteSheet
+			, Vector2::Zero, Vector2(imageWidth, imageHeight)
+			, offset, filecount, duration);
+
 	}
 	Animation* Animator::FindAnimation(const std::wstring& name)
 	{

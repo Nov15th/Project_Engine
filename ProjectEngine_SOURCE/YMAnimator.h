@@ -50,6 +50,10 @@ namespace YM
 			, UINT spriteLenght
 			, float duration);
 
+		void CreatAnimationByFolder(const std::wstring& name
+			, const std::wstring& path
+			, Vector2 offset, float duration);
+
 
 		Animation* FindAnimation(const std::wstring& name);
 		void PlayAnimation(const std::wstring& name, bool loop = true);

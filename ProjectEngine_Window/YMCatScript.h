@@ -47,7 +47,7 @@ namespace YM
 		class Animator* mAnimator;
 		eDiration mDiration;
 		float mTime;
-		
+		float mDeathTime;
 		
 	};
 }

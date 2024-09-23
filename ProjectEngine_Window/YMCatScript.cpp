@@ -4,13 +4,14 @@
 #include "YMTime.h"
 #include "YMGameObject.h"
 #include "YMAnimator.h"
-
+#include "YMObject.h"
 namespace YM
 {
 	CatScript::CatScript()
 		:mState(eState::SitDown)
 		, mAnimator(nullptr)
 		, mTime(0.0f)
+		, mDeathTime(0.0f)
 	{
 	}
 	CatScript::~CatScript()
@@ -22,6 +23,12 @@ namespace YM
 	}
 	void CatScript::Update()
 	{
+
+		mDeathTime += Time::DeltaTime();
+		if (mDeathTime > 6.0f)
+		{
+			//Object::Destroy(GetOwner());
+		}
 		if (mAnimator == nullptr)
 		{
 			mAnimator = GetOwner()->GetComponent<Animator>();

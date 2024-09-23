@@ -72,26 +72,40 @@ namespace YM
 		graphcis::Texture::eTextureType type = mTexture->GetTextureType();
 		if (type == graphcis::Texture::eTextureType::Bmp)
 		{
-			//±âº» Æ÷¸ä
-			BLENDFUNCTION func = {};
-			func.BlendOp = AC_SRC_OVER;
-			func.BlendFlags = 0;
-			func.AlphaFormat = AC_SRC_ALPHA;
-			func.SourceConstantAlpha = 255; //alpah -> 0(transparent)~255(opaque)
+			////±âº» Æ÷¸ä
+			//BLENDFUNCTION func = {};
+			//func.BlendOp = AC_SRC_OVER;
+			//func.BlendFlags = 0;
+			//func.AlphaFormat = AC_SRC_ALPHA;
+			//func.SourceConstantAlpha = 255; //alpah -> 0(transparent)~255(opaque)
 
-			
-			HDC imHDC = mTexture->GetHdc();
-			AlphaBlend(hdc
+			//
+			HDC imGHDC = mTexture->GetHdc();
+			//AlphaBlend(hdc
+			//	, pos.x - (sprite.size.x / 2.0f)
+			//	, pos.y-(sprite.size.y/2.0f)
+			//	, sprite.size.x * scale.x 
+			//	, sprite.size.y * scale.y
+			//	, imHDC
+			//	, sprite.leftTop.x
+			//	, sprite.leftTop.y
+			//	, sprite.size.x
+			//	, sprite.size.y
+			//	, func);
+
+			TransparentBlt(hdc
 				, pos.x - (sprite.size.x / 2.0f)
 				, pos.y-(sprite.size.y/2.0f)
 				, sprite.size.x * scale.x 
 				, sprite.size.y * scale.y
-				, imHDC
+				, imGHDC
 				, sprite.leftTop.x
 				, sprite.leftTop.y
 				, sprite.size.x
 				, sprite.size.y
-				, func);
+				, RGB(255, 0, 255));
+
+
 		}
 		else if (type == graphcis::Texture::eTextureType::Png)
 		{

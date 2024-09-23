@@ -41,6 +41,19 @@ namespace YM
 			return resource;
 		}
 
+		static void Insert(const std::wstring& key, Resource* resource)
+		{
+			if (resource == nullptr)
+			{
+				return;
+			}
+			if (key == L"")
+			{
+				return;
+			}
+			mResources.insert(std::make_pair(key, resource));
+		}
+
 		static void Release()
 		{
 			for (auto& iter : mResources)
