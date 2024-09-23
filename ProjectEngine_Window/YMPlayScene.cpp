@@ -59,37 +59,36 @@ namespace YM
 
 
 		///Cat
-		Cat* cat = Object::Instantiate<Cat>(enums::eLayerType::Animal);
-		//cat->SetActive(false);
-		cat->AddComponent<CatScript>();
+		//Cat* cat = Object::Instantiate<Cat>(enums::eLayerType::Animal);
+		////cat->SetActive(false);
+		//cat->AddComponent<CatScript>();
+		////cameraComp->SetTarget(cat);
+		//graphcis::Texture* catTex = Resources::Find<graphcis::Texture>(L"Cat");
+		//Animator* catanimator = cat->AddComponent<Animator>();
+		//
 
-		//cameraComp->SetTarget(cat);
-		graphcis::Texture* catTex = Resources::Find<graphcis::Texture>(L"Cat");
-		Animator* catanimator = cat->AddComponent<Animator>();
-		
+		///*catanimator->CreatAnimation(L"CatDownWalk", catTex
+		//	, Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		//catanimator->CreatAnimation(L"CatRightWalk", catTex
+		//	, Vector2(0.0f, 32.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		//catanimator->CreatAnimation(L"CatUpWalk", catTex
+		//	, Vector2(0.0f, 64.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		//catanimator->CreatAnimation(L"CatLeftWalk", catTex
+		//	, Vector2(0.0f, 96.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		//catanimator->CreatAnimation(L"CatSitDown", catTex
+		//	, Vector2(0.0f, 128.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		//catanimator->CreatAnimation(L"CatGrooming", catTex
+		//	, Vector2(0.0f, 160.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		//catanimator->CreatAnimation(L"CatLayDown", catTex
+		//	, Vector2(0.0f, 192.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
 
-		/*catanimator->CreatAnimation(L"CatDownWalk", catTex
-			, Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		catanimator->CreatAnimation(L"CatRightWalk", catTex
-			, Vector2(0.0f, 32.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		catanimator->CreatAnimation(L"CatUpWalk", catTex
-			, Vector2(0.0f, 64.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		catanimator->CreatAnimation(L"CatLeftWalk", catTex
-			, Vector2(0.0f, 96.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		catanimator->CreatAnimation(L"CatSitDown", catTex
-			, Vector2(0.0f, 128.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		catanimator->CreatAnimation(L"CatGrooming", catTex
-			, Vector2(0.0f, 160.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		catanimator->CreatAnimation(L"CatLayDown", catTex
-			, Vector2(0.0f, 192.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		//catanimator->PlayAnimation(L"CatSitDown", false);*/
 
-		catanimator->PlayAnimation(L"CatSitDown", false);*/
+		//catanimator->CreatAnimationByFolder(L"MushroomIdle", L"..\\Resources\\Mushroom", Vector2::Zero, 0.1f);
+		//catanimator->PlayAnimation(L"MushroomIdle", true);
 
-		catanimator->CreatAnimationByFolder(L"MushroomIdle", L"..\\Resources\\Mushroom", Vector2::Zero, 0.1f);
-		catanimator->PlayAnimation(L"MushroomIdle", true);
-
-		cat->GetComponent<Transform>()->SetPosition(Vector2(300.0f, 300.0f));
-		cat->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
+		//cat->GetComponent<Transform>()->SetPosition(Vector2(300.0f, 300.0f));
+		//cat->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
 
 	/*	GameObject* sheet = Object::Instantiate<GameObject>(enums::eLayerType::Particle);
 		SpriteRenderer* sheetSR = sheet->AddComponent<SpriteRenderer>();

@@ -35,12 +35,17 @@ namespace YM
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
+		void SetPlayer(GameObject* player) { mPlayer = player; }
+		Vector2 mDest;
+	private:
+
 		void SitDown();
 		void Move();
 		void LayDown();
 		void PlayWalkAnimationByDiration(eDiration dir);
 		void Translate(Transform* tr);
-
+		
+		
 
 	private:
 		eState mState;
@@ -48,6 +53,8 @@ namespace YM
 		eDiration mDiration;
 		float mTime;
 		float mDeathTime;
+
+		GameObject* mPlayer;
 		
 	};
 }

@@ -63,11 +63,42 @@ namespace YM
 	{
 		if (Input::GetKey(eKeyCode::LButton))
 		{
+			Cat* cat = Object::Instantiate<Cat>(enums::eLayerType::Animal);
+			CatScript* catSrc = cat->AddComponent<CatScript>();
+			catSrc->SetPlayer(GetOwner());
 
-			mState = eState::GiveWater;
-			mAnimator->PlayAnimation(L"FrontGiveWater", false);
+
+			graphcis::Texture* catTex = Resources::Find<graphcis::Texture>(L"Cat");
+			Animator* catanimator = cat->AddComponent<Animator>();
+			catanimator->CreatAnimation(L"CatDownWalk", catTex
+				, Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+			catanimator->CreatAnimation(L"CatRightWalk", catTex
+				, Vector2(0.0f, 32.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+			catanimator->CreatAnimation(L"CatUpWalk", catTex
+				, Vector2(0.0f, 64.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+			catanimator->CreatAnimation(L"CatLeftWalk", catTex
+				, Vector2(0.0f, 96.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+			catanimator->CreatAnimation(L"CatSitDown", catTex
+				, Vector2(0.0f, 128.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+			catanimator->CreatAnimation(L"CatGrooming", catTex
+				, Vector2(0.0f, 160.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+			catanimator->CreatAnimation(L"CatLayDown", catTex
+				, Vector2(0.0f, 192.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+
+			catanimator->PlayAnimation(L"CatSitDown", false);
+
+			Transform* tr = GetOwner()->GetComponent<Transform>();
+
+
+			cat->GetComponent<Transform>()->SetPosition(Vector2(tr->GetPosition()));
+			cat->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
 
 			Vector2 mousePos = Input::GetMousePosition();
+			catSrc->mDest = mousePos;
+			/*mState = eState::GiveWater;
+			mAnimator->PlayAnimation(L"FrontGiveWater", false);
+
+			Vector2 mousePos = Input::GetMousePosition();*/
 
 		}
 		
@@ -122,7 +153,8 @@ namespace YM
 	void PlayerScript::AttackEffect()
 	{
 		Cat* cat = Object::Instantiate<Cat>(enums::eLayerType::Animal);
-		cat->AddComponent<CatScript>();
+		CatScript* catSrc = cat->AddComponent<CatScript>();
+		catSrc->SetPlayer(GetOwner());
 
 
 		graphcis::Texture* catTex = Resources::Find<graphcis::Texture>(L"Cat");
@@ -143,7 +175,15 @@ namespace YM
 			, Vector2(0.0f, 192.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
 
 		catanimator->PlayAnimation(L"CatSitDown", false);
-		cat->GetComponent<Transform>()->SetPosition(Vector2(300.0f, 300.0f));
+
+		Transform* tr = GetOwner()->GetComponent<Transform>();
+
+
+		cat->GetComponent<Transform>()->SetPosition(Vector2(tr->GetPosition()));
 		cat->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
+
+		Vector2 mousePos = Input::GetMousePosition();
+		catSrc->mDest = mousePos;
+
 	}
 }

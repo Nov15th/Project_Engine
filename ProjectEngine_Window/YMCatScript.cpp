@@ -12,6 +12,7 @@ namespace YM
 		, mAnimator(nullptr)
 		, mTime(0.0f)
 		, mDeathTime(0.0f)
+		, mDest(Vector2::Zero)
 	{
 	}
 	CatScript::~CatScript()
@@ -62,16 +63,36 @@ namespace YM
 	}
 	void CatScript::SitDown()
 	{
-		
 		mTime += Time::DeltaTime();
-		if (mTime > 3.0f)
+
+		if (mTime > 2.0f)
+		{
+			Object::Destroy(GetOwner());
+		}
+
+		Transform* tr = GetOwner()->GetComponent<Transform>();
+		Vector2 pos = tr->GetPosition();
+		//pos.x -= 100.0f * Time::DeltaTime();
+
+		//Vector2 mousePos = Input::GetMousePosition();
+		
+
+		Transform* plTr =  mPlayer->GetComponent<Transform>();
+
+		Vector2 dest = mDest - plTr->GetPosition();
+
+		pos += dest.normalize() *(100.0f * Time::DeltaTime());
+		tr->SetPosition(pos);
+
+
+		/*if (mTime > 3.0f)
 		{
 			mState = CatScript::eState::Walk;
 			int diration = rand() % 4;
 			mDiration = (eDiration)diration;
 			PlayWalkAnimationByDiration(mDiration);
 			mTime = 0.0f;
-		}
+		}*/
 
 
 	}

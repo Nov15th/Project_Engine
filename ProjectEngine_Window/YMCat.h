@@ -13,7 +13,7 @@ namespace YM
 		void Render(HDC hdc) override;
 
 	private:
-
+		
 	};
 
 }

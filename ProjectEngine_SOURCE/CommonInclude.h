@@ -8,7 +8,7 @@
 #include <map>
 #include <functional>
 #include <filesystem>
-
+#include <math.h>
 #include "YMMath.h"
 
 #include <mmsystem.h>
