@@ -40,11 +40,37 @@ namespace YM
 		pos = renderer::mainCamera->CalulatePosition(pos);
 		if (mTexture->GetTextureType() == graphcis::Texture::eTextureType::Bmp)
 		{
-			
-			TransparentBlt(hdc, pos.x, pos.y
-				, mTexture->GetWidth() * mSize.x * scale.x, mTexture->GetHeight() * mSize.y * scale.y
-				, mTexture->GetHdc(), 0, 0, mTexture->GetWidth(), mTexture->GetHeight()
-				, RGB(255, 0, 255));
+			if (mTexture->IsAlpha())
+			{
+				//±âº» Æ÷¸ä
+				BLENDFUNCTION func = {};
+				func.BlendOp = AC_SRC_OVER;
+				func.BlendFlags = 0;
+				func.AlphaFormat = AC_SRC_ALPHA;
+				func.SourceConstantAlpha = 255; //alpah -> 0(transparent)~255(opaque)
+				AlphaBlend(hdc
+					, pos.x 
+					, pos.y 
+					, mTexture->GetWidth() * mSize.x * scale.x
+					, mTexture->GetHeight() * mSize.y * scale.y
+					, mTexture->GetHdc()
+					, 0, 0
+					, mTexture->GetWidth()
+					, mTexture->GetHeight()
+					, func);
+			}
+			else
+			{
+				TransparentBlt(hdc
+					, pos.x, pos.y
+					, mTexture->GetWidth() * mSize.x * scale.x
+					, mTexture->GetHeight() * mSize.y * scale.y
+					, mTexture->GetHdc()
+					, 0, 0
+					, mTexture->GetWidth()
+					, mTexture->GetHeight()
+					, RGB(255, 0, 255));
+			}
 		}
 		else if (mTexture->GetTextureType() == graphcis::Texture::eTextureType::Png)
 		{

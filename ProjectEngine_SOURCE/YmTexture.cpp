@@ -57,6 +57,15 @@ namespace YM::graphcis
 			mWidth = info.bmWidth;
 			mHeight = info.bmHeight;
 
+			if (info.bmBitsPixel == 32)
+			{
+				mbAlpha = true;
+			}
+			else if (info.bmBitsPixel == 24)
+			{
+				mbAlpha = false;
+			}
+
 			HDC mainDC = application.GetHDC();
 			mHdc = CreateCompatibleDC(mainDC);
 			HBITMAP oldBitmap = (HBITMAP)SelectObject(mHdc, mBitmap);
