@@ -53,6 +53,7 @@ namespace YM
 		eDiration mDiration;
 		float mTime;
 		float mDeathTime;
+		float mRadian;
 
 		GameObject* mPlayer;
 		

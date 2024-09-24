@@ -3,6 +3,9 @@
 namespace YM::math
 {
 #define PI 3.141592f
+
+	static float ConvertDegree(float radian) { return (radian * (180 / PI)); }
+
 	struct Vector2
 	{
 		static Vector2 Rotate(Vector2 vector, float degree)
