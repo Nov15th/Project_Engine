@@ -27,9 +27,10 @@ namespace YM::enums
 	enum class eComponentType
 	{
 		Transform,
+		Collider,
+		Script,
 		SpriteRender,
 		Animator,
-		Script,
 		Camera,
 		End,
 	};

@@ -32,7 +32,6 @@ namespace YM::Object
 
 	static void Destroy(GameObject* obj)
 	{
-
-		obj->Death();
+		obj->IsDead();
 	}
 }

@@ -81,21 +81,21 @@ namespace YM
 
 
 		// 삼각함수를 통한 이동
-		mRadian += Time::DeltaTime();
-		pos += Vector2(1.0f, cosf(mRadian)) * 100.0f * Time::DeltaTime();
-		tr->SetPosition(pos);
+		//mRadian += Time::DeltaTime();
+		//pos += Vector2(1.0f, cosf(mRadian)) * 100.0f * Time::DeltaTime();
+		//tr->SetPosition(pos);
 
 
 		//마우스 위치 방향으로 회전후 마우스 위치 이동 (벡터 뺄셈 활용)
-		Transform* plTr =  mPlayer->GetComponent<Transform>();
-		Vector2 dest = mDest - plTr->GetPosition();
-		dest.normalize();
-		float rotDegree = Vector2::Dot(dest, Vector2::Right);
-		rotDegree = acosf(rotDegree);
-
-		rotDegree = ConvertDegree(rotDegree);
-
-		pos += dest.normalize() *(100.0f * Time::DeltaTime());
+		//Transform* plTr =  mPlayer->GetComponent<Transform>();
+		//Vector2 dest = mDest - plTr->GetPosition();
+		//dest.normalize();
+		//float rotDegree = Vector2::Dot(dest, Vector2::Right);
+		//rotDegree = acosf(rotDegree);
+		//
+		//rotDegree = ConvertDegree(rotDegree);
+		//
+		//pos += dest.normalize() *(100.0f * Time::DeltaTime());
 
 
 

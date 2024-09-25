@@ -61,6 +61,18 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)YMResource.cpp">
       <Filter>Resource\Base</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMCollider.cpp">
+      <Filter>Component\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMBoxCollider2D.cpp">
+      <Filter>Component\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMCircleCollider2D.cpp">
+      <Filter>Component\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMCollisionManager.cpp">
+      <Filter>Component\Collider</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)YMEntity.h">
@@ -132,6 +144,18 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)YMResource.h">
       <Filter>Resource\Base</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMCollider.h">
+      <Filter>Component\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMBoxCollider2D.h">
+      <Filter>Component\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMCircleCollider2D.h">
+      <Filter>Component\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMCollisionManager.h">
+      <Filter>Component\Collider</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Component">
@@ -190,6 +214,9 @@
     </Filter>
     <Filter Include="Resource\Base">
       <UniqueIdentifier>{0c295c8a-a852-4714-8ac9-455d4998d2a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Collider">
+      <UniqueIdentifier>{f910a7f7-3a18-4f9c-8aa5-0bd4131eb170}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

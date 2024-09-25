@@ -18,7 +18,11 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)peApplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMAnimation.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMAnimator.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMBoxCollider2D.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMCamera.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMCircleCollider2D.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMCollider.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMCollisionManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMEnums.h" />
@@ -42,7 +46,11 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)peApplication.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMAnimation.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMAnimator.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMBoxCollider2D.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YmCamera.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMCircleCollider2D.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMCollider.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMCollisionManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMGameObject.cpp" />

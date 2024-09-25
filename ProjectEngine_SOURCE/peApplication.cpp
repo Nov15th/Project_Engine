@@ -1,6 +1,7 @@
 #include "peApplication.h"
 #include "YMInput.h"
 #include "YMTime.h"
+#include "YMCollisionManager.h"
 #include "YMSceneManager.h"
 #include "YMResources.h"
 
@@ -51,6 +52,7 @@ namespace YM
 
 		Input::Initailize();
 		Time::Initailize();
+		CollisionManager::Initialize();
 		SceneManager::Initialize();
 	}
 	void Application::Run()
@@ -66,18 +68,27 @@ namespace YM
 		Input::Update();
 		Time::Update();
 		//mPlayer.Updata();
+		CollisionManager::Update();
 		SceneManager::Update();
 
 	}
 	void Application::LateUpdate()
 	{
+		CollisionManager::LateUpdate();
 		SceneManager::LateUpdate();
 	}
 	void Application::Render()
 	{
+		HBRUSH grayBrush = (HBRUSH)CreateSolidBrush(RGB(128,128,128));
+		HBRUSH oldBrush = (HBRUSH)SelectObject(mBackHdc, grayBrush);
 		Rectangle(mBackHdc, -1, -1, 1601, 901);
+
+		SelectObject(mBackHdc, oldBrush);
+		DeleteObject(grayBrush);
+
 		Time::Render(mBackHdc);
 		//mPlayer.Render(mBackHdc);
+		CollisionManager::Render(mBackHdc);
 		SceneManager::Render(mBackHdc);
 
 		//백 버퍼에 있는것을 원본 버퍼에 복사(그려준다)
