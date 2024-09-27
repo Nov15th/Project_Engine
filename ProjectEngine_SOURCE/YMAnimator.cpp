@@ -64,7 +64,7 @@ namespace YM
 	}
 	void Animator::CreatAnimation(
 		const std::wstring& name
-		, graphcis::Texture* spriteSheet
+		, graphics::Texture* spriteSheet
 		, Vector2 leftTop, Vector2 size
 		, Vector2 offset, UINT spriteLenght
 		, float duration)
@@ -98,12 +98,12 @@ namespace YM
 
 		int filecount = 0;
 		std::filesystem::path fs(path);
-		std::vector<graphcis::Texture*> images = {};
+		std::vector<graphics::Texture*> images = {};
 		for (auto& p :std::filesystem::recursive_directory_iterator(fs))
 		{
 			std::wstring fileName = p.path().filename();
 			std::wstring fullName = p.path();
-			graphcis::Texture* texture = Resources::Load<graphcis::Texture>(fileName, fullName);
+			graphics::Texture* texture = Resources::Load<graphics::Texture>(fileName, fullName);
 
 			images.push_back(texture);
 			filecount++;
@@ -112,7 +112,7 @@ namespace YM
 
 		UINT sheetWidth = images[0]->GetWidth() * filecount;
 		UINT sheetHeight= images[0]->GetHeight();
-		graphcis::Texture* spriteSheet = graphcis::Texture::Create(name, sheetWidth, sheetHeight);
+		graphics::Texture* spriteSheet = graphics::Texture::Create(name, sheetWidth, sheetHeight);
 
 		UINT imageWidth = images[0]->GetWidth();
 		UINT imageHeight = images[0]->GetHeight();

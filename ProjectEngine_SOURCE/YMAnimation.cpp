@@ -69,8 +69,8 @@ namespace YM
 
 
 		Sprite sprite = mAnimationSheet[mIndex];
-		graphcis::Texture::eTextureType type = mTexture->GetTextureType();
-		if (type == graphcis::Texture::eTextureType::Bmp)
+		graphics::Texture::eTextureType type = mTexture->GetTextureType();
+		if (type == graphics::Texture::eTextureType::Bmp)
 		{
 			
 
@@ -117,7 +117,7 @@ namespace YM
 
 
 		}
-		else if (type == graphcis::Texture::eTextureType::Png)
+		else if (type == graphics::Texture::eTextureType::Png)
 		{
 			//내가 원하는 픽셀을 투명화 시킬때
 			Gdiplus::ImageAttributes imgAtt = {};
@@ -149,7 +149,7 @@ namespace YM
 		}
 		
 	}
-	void Animation::CreatAnimation(const std::wstring& name, graphcis::Texture* spriteSheet, Vector2 leftTop, Vector2 size, Vector2 offset, UINT spriteLenght, float duration)
+	void Animation::CreatAnimation(const std::wstring& name, graphics::Texture* spriteSheet, Vector2 leftTop, Vector2 size, Vector2 offset, UINT spriteLenght, float duration)
 	{
 		mTexture = spriteSheet;
 		for (size_t i = 0; i <spriteLenght; i++)

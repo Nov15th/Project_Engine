@@ -36,6 +36,12 @@
     <ClInclude Include="YMCatScript.h">
       <Filter>Script</Filter>
     </ClInclude>
+    <ClInclude Include="YMToolScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="YMTile.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="YMPlayScene.cpp">
@@ -55,6 +61,12 @@
     </ClCompile>
     <ClCompile Include="YMCatScript.cpp">
       <Filter>Script</Filter>
+    </ClCompile>
+    <ClCompile Include="YMToolScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="YMTile.cpp">
+      <Filter>Contents</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

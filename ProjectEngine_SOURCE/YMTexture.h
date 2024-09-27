@@ -1,7 +1,7 @@
 #pragma once
 #include "YMResource.h"
 
-namespace YM::graphcis
+namespace YM::graphics
 {
 	class Texture : public Resource
 	{

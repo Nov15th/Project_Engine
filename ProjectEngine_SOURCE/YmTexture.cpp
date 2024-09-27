@@ -4,7 +4,7 @@
 
 extern YM::Application application;
 
-namespace YM::graphcis
+namespace YM::graphics
 {
 	Texture* Texture::Create(const std::wstring& name, UINT width, UINT height)
 	{

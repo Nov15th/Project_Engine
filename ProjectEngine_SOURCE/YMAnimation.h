@@ -36,7 +36,7 @@ namespace YM
 
 
 		void CreatAnimation(const std::wstring& name
-			, graphcis::Texture* spriteSheet
+			, graphics::Texture* spriteSheet
 			, Vector2 leftTop
 			, Vector2 size
 			, Vector2 offset
@@ -52,7 +52,7 @@ namespace YM
 	private:
 
 		class Animator* mAnimator;
-		graphcis::Texture* mTexture;
+		graphics::Texture* mTexture;
 		std::vector<Sprite> mAnimationSheet;
 		UINT mIndex;
 		float mTime;

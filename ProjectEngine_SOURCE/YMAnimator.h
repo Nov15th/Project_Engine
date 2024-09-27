@@ -43,7 +43,7 @@ namespace YM
 
 
 		void CreatAnimation(const std::wstring& name
-			, graphcis::Texture* spriteSheet
+			, graphics::Texture* spriteSheet
 			, Vector2 leftTop
 			, Vector2 size
 			, Vector2 offset

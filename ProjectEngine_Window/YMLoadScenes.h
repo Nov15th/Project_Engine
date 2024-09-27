@@ -3,6 +3,7 @@
 
 #include "YMPlayScene.h"
 #include "YMTitleScene.h"
+#include "YMToolScene.h"
 
 // #pragma comment(lib, "..\\x64\\Debug\\ProjectEngine_Window.lib")
 
@@ -14,12 +15,13 @@ namespace YM
 
 
 
-		SceneManager::CreatScene<PlayScene>(L"Play Scene");
-		SceneManager::CreatScene<TitleScene>(L"Title Scene");
+		//SceneManager::CreatScene<PlayScene>(L"Play Scene");
+		//SceneManager::CreatScene<TitleScene>(L"Title Scene");
+		SceneManager::CreatScene<ToolScene>(L"Tool Scene");
 		//SceneManager::CreatScene<EndScene>(L"EndScene");
 		//SceneManager::CreatScene<TitleScene>(L"TitleScene");
 
-		SceneManager::LoadScene(L"Play Scene");
+		SceneManager::LoadScene(L"Tool Scene");
 
 	}
 }

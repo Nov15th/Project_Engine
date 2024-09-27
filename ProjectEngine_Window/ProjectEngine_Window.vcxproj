@@ -143,7 +143,9 @@
     <ClInclude Include="YMPlayer.h" />
     <ClInclude Include="YMPlayerScript.h" />
     <ClInclude Include="YMPlayScene.h" />
+    <ClInclude Include="YMTile.h" />
     <ClInclude Include="YMTitleScene.h" />
+    <ClInclude Include="YMToolScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="YMCat.cpp" />
@@ -151,7 +153,9 @@
     <ClCompile Include="YMPlayer.cpp" />
     <ClCompile Include="YMPlayerScript.cpp" />
     <ClCompile Include="YMPlayScene.cpp" />
+    <ClCompile Include="YMTile.cpp" />
     <ClCompile Include="YMTitleScene.cpp" />
+    <ClCompile Include="YMToolScene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -76,6 +76,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)YMDontDestroyOnLoad.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMTilemapRenderer.cpp">
+      <Filter>Component\TilemapRenderer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)YMEntity.h">
@@ -162,6 +165,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)YMDontDestroyOnLoad.h">
       <Filter>Scene</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMTilemapRenderer.h">
+      <Filter>Component\TilemapRenderer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Component">
@@ -223,6 +229,9 @@
     </Filter>
     <Filter Include="Component\Collider">
       <UniqueIdentifier>{f910a7f7-3a18-4f9c-8aa5-0bd4131eb170}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\TilemapRenderer">
+      <UniqueIdentifier>{a5f41697-3610-4dcd-894c-63c3c288025f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

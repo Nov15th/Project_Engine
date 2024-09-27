@@ -1,37 +1,39 @@
-#include "YMSpriteRenderer.h"
+#include "YMTilemapRenderer.h"
 #include "YMGameObject.h"
 #include "YMTransform.h"
 #include "YMTexture.h"
 #include "YMRenderer.h"
 namespace YM
 {
-	SpriteRenderer::SpriteRenderer()
+	TilemapRenderer::TilemapRenderer()
 		:Component(enums::eComponentType::SpriteRender)
 		, mTexture(nullptr)
 		, mSize(Vector2::One)
+		, mIndex(0,0)
+		, mTileSize(16.0f, 16.0f)
 
 	{
 	}
-	SpriteRenderer::~SpriteRenderer()
+	TilemapRenderer::~TilemapRenderer()
 	{
 	}
-	void SpriteRenderer::Initialize()
+	void TilemapRenderer::Initialize()
 	{
 	}
-	void SpriteRenderer::Update()
+	void TilemapRenderer::Update()
 	{
 	}
-	void SpriteRenderer::LateUpdate()
+	void TilemapRenderer::LateUpdate()
 	{
 	}
 
-	void SpriteRenderer::Render(HDC hdc)
+	void TilemapRenderer::Render(HDC hdc)
 	{
-		if (mTexture==nullptr)
+		if (mTexture == nullptr)
 		{
 			assert(false);
 		}
-		
+
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
 		float rot = tr->GetRotation();
@@ -49,8 +51,8 @@ namespace YM
 				func.AlphaFormat = AC_SRC_ALPHA;
 				func.SourceConstantAlpha = 255; //alpah -> 0(transparent)~255(opaque)
 				AlphaBlend(hdc
-					, pos.x 
-					, pos.y 
+					, pos.x
+					, pos.y
 					, mTexture->GetWidth() * mSize.x * scale.x
 					, mTexture->GetHeight() * mSize.y * scale.y
 					, mTexture->GetHdc()
@@ -63,12 +65,12 @@ namespace YM
 			{
 				TransparentBlt(hdc
 					, pos.x, pos.y
-					, mTexture->GetWidth() * mSize.x * scale.x
-					, mTexture->GetHeight() * mSize.y * scale.y
+					, mTileSize.x * mSize.x * scale.x
+					, mTileSize.y * mSize.y * scale.y
 					, mTexture->GetHdc()
-					, 0, 0
-					, mTexture->GetWidth()
-					, mTexture->GetHeight()
+					, mIndex.x * mTileSize.x , mIndex.y * mTileSize.y
+					, mTileSize.x
+					, mTileSize.y
 					, RGB(255, 0, 255));
 			}
 		}
@@ -89,13 +91,13 @@ namespace YM
 				(
 					pos.x, pos.y, mTexture->GetWidth() * mSize.x * scale.x, mTexture->GetHeight() * mSize.y * scale.y
 				)
-				, 0,0,mTexture->GetWidth(), mTexture->GetHeight()
+				, 0, 0, mTexture->GetWidth(), mTexture->GetHeight()
 				, Gdiplus::UnitPixel
 				, nullptr  /*, &imgAtt*/);
 
 		}
-		
+
 	}
 
-	
+
 }

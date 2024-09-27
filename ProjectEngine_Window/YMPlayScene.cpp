@@ -50,7 +50,7 @@ namespace YM
 		//BoxCollider2D* collider = mPlayer->AddComponent<BoxCollider2D>();
 		collider->SetOffset(Vector2(-50.0f, -50.0f));
 
-		graphcis::Texture* playerTex = Resources::Find<graphcis::Texture>(L"Player");
+		graphics::Texture* playerTex = Resources::Find<graphics::Texture>(L"Player");
 		Animator* playerAnimator = mPlayer->AddComponent<Animator>();
 		playerAnimator->CreatAnimation(L"PlayerIdle", playerTex,
 			Vector2(2000.0f, 250.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 1, 0.1f);
@@ -74,7 +74,7 @@ namespace YM
 		//cat->SetActive(false);
 		cat->AddComponent<CatScript>();
 		//cameraComp->SetTarget(cat);
-		graphcis::Texture* catTex = Resources::Find<graphcis::Texture>(L"Cat");
+		graphics::Texture* catTex = Resources::Find<graphics::Texture>(L"Cat");
 		Animator* catanimator = cat->AddComponent<Animator>();
 
 		//BoxCollider2D* boxCatCollider = cat->AddComponent<BoxCollider2D>();

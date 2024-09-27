@@ -6,6 +6,7 @@ namespace YM::enums
 	{
 		None,
 		BackGround,
+		Tile,
 		//True,
 		//Character,
 		Animal,
