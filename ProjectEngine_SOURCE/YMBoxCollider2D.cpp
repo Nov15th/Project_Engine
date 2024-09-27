@@ -3,7 +3,7 @@
 #include "YMGameObject.h"
 
 YM::BoxCollider2D::BoxCollider2D()
-	: Collider()
+	: Collider(eColliderType::Rect2D)
 {
 }
 

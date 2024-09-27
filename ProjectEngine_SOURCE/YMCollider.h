@@ -7,7 +7,7 @@ namespace YM
 	class Collider : public Component
 	{
 	public:
-		Collider();
+		Collider(eColliderType type);
 		~Collider();
 
 		virtual void Initialize();
@@ -15,12 +15,25 @@ namespace YM
 		virtual void LateUpdate();
 		virtual void Render(HDC hdc);
 
+		virtual void OnColliisionEnter(Collider* other);
+		virtual void OnColliisionStay(Collider* other);
+		virtual void OnColliisionExit(Collider* other);
+
+
 		Vector2 GetOffSet() { return mOffset; }
 		void SetOffset(Vector2 offset) { mOffset = offset; }
 
-	private:
+		UINT32 GetID() { return mID; }
 
+		Vector2 GetSize() { return mSize; }
+		void SetSize(Vector2 size) { mSize = size; }
+		eColliderType GetColliderType() { return mType; }
+	private:
+		static UINT32 mCollisionID;
+		UINT32 mID;
 		Vector2 mOffset;
+		Vector2 mSize;
+		eColliderType mType;
 	};
 }
 

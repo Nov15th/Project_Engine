@@ -8,7 +8,7 @@
 #include "YMCatScript.h"
 #include "YMObject.h"
 #include "YMResources.h"
-
+#include "YMCollider.h"
 
 namespace YM
 {
@@ -208,5 +208,18 @@ namespace YM
 		Vector2 mousePos = Input::GetMousePosition();
 		catSrc->mDest = mousePos;
 
+	}
+	void PlayerScript::OnCollisionEnter(Collider* other)
+	{
+		Transform* tr = GetOwner()->GetComponent<Transform>();
+		tr->SetPosition(Vector2(500.0f, 500.0f));
+	}
+	void PlayerScript::OnCollisionStay(Collider* other)
+	{
+		
+	}
+	void PlayerScript::OnCollisionExit(Collider* other)
+	{
+		
 	}
 }

@@ -30,6 +30,12 @@ namespace YM
 		void GiveWater();
 		void AttackEffect();
 
+		void OnCollisionEnter(class Collider* other) override ;
+		void OnCollisionStay(class Collider* other) override ;
+		void OnCollisionExit(class Collider* other) override ;
+
+
+
 	private:
 		eState mState;
 		class Animator* mAnimator;

@@ -16,6 +16,7 @@
 #include "YMCat.h"
 #include "YMCatScript.h"
 #include "YMBoxCollider2D.h"
+#include "YMCircleCollider2D.h"
 #include "YMCollisionManager.h"
 
 namespace YM
@@ -41,7 +42,8 @@ namespace YM
 
 		mPlayer = Object::Instantiate<Player>(enums::eLayerType::Player);
 		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
-		BoxCollider2D* collider = mPlayer->AddComponent<BoxCollider2D>();
+		CircleCollider2D* collider = mPlayer->AddComponent<CircleCollider2D>();
+		//BoxCollider2D* collider = mPlayer->AddComponent<BoxCollider2D>();
 		collider->SetOffset(Vector2(-50.0f, -50.0f));
 
 		graphcis::Texture* playerTex = Resources::Find<graphcis::Texture>(L"Player");
@@ -57,7 +59,7 @@ namespace YM
 		/*sr->SetTexture(playerTex);*/
 
 
-		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(300.0f, 300.0f));
+		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(350.0f, 350.0f));
 		mPlayer->GetComponent<Transform>()->SetScale(Vector2(1.0f, 1.0f));
 		mPlayer->GetComponent<Transform>()->SetRotation(0.0f);
 		
@@ -71,9 +73,10 @@ namespace YM
 		graphcis::Texture* catTex = Resources::Find<graphcis::Texture>(L"Cat");
 		Animator* catanimator = cat->AddComponent<Animator>();
 
-		BoxCollider2D* boxCatCollider = cat->AddComponent<BoxCollider2D>();
+		//BoxCollider2D* boxCatCollider = cat->AddComponent<BoxCollider2D>();
+		CircleCollider2D* circleCatCollider = cat->AddComponent<CircleCollider2D>();
 
-		boxCatCollider->SetOffset(Vector2(-50.0f, -50.0f));
+		circleCatCollider->SetOffset(Vector2(-50.0f, -50.0f));
 		
 
 		/*catanimator->CreatAnimation(L"CatDownWalk", catTex
