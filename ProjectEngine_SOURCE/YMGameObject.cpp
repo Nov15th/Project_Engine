@@ -2,10 +2,28 @@
 #include "YMInput.h"
 #include "YMTime.h"
 #include "YMTransform.h"
+
+namespace YM::object
+{
+	void Destroy(GameObject* gameObject)
+	{
+		if (gameObject != nullptr)
+		{
+			
+			gameObject->death();
+		}
+	}
+}
+
+
+
 namespace YM
 {
+	
+
 	GameObject::GameObject()
 		:mState(eState::Active)
+		,mLayerType(eLayerType::None)
 	{
 		mComponents.resize((UINT)enums::eComponentType::End);
 		initializeTransform();

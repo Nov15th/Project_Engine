@@ -41,6 +41,10 @@ namespace YM
 		
 
 		mPlayer = Object::Instantiate<Player>(enums::eLayerType::Player);
+		Object::DontDestroyOnLoad(mPlayer);
+
+
+
 		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
 		CircleCollider2D* collider = mPlayer->AddComponent<CircleCollider2D>();
 		//BoxCollider2D* collider = mPlayer->AddComponent<BoxCollider2D>();

@@ -22,6 +22,7 @@ namespace YM
 
 		static Scene* LoadScene(const std::wstring& name);
 		static Scene* GetActiveScene() { return mActiveScene; }
+		static Scene* GetDonDestroyOnLoad() { return mDontDestroyOnLoad; }
 
 		static void Initialize();
 		static void Update();
@@ -33,10 +34,10 @@ namespace YM
 	private:
 		static std::map<std::wstring, Scene*> mScene;
 		static Scene* mActiveScene;
-
+		static Scene* mDontDestroyOnLoad;
 	};
 
-	//static SceneManager sceneManager;
+	
 
 
 }

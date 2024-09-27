@@ -17,8 +17,13 @@ namespace YM
 		virtual void Destroy();
 
 		void AddGameObject(GameObject* gameObject);
+		void EraseGameObject(GameObject* eraseGameObject);
 		const std::vector<GameObject*> GetGameObject() { return mGameObjects; }
 
+	private:
+		void findDeadGameObjects(OUT std::vector<GameObject*>& gameObjs);
+		void deleteGameObjects(std::vector<GameObject*> gameObjs);
+		void eraseDeadGameObject();
 	
 	private:
 

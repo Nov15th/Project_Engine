@@ -73,6 +73,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)YMCollisionManager.cpp">
       <Filter>Component\Collider</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMDontDestroyOnLoad.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)YMEntity.h">
@@ -155,6 +158,9 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)YMCollisionManager.h">
       <Filter>Component\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMDontDestroyOnLoad.h">
+      <Filter>Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

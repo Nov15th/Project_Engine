@@ -24,6 +24,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)YMCollider.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMCollisionManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMComponent.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMDontDestroyOnLoad.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMEnums.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMGameObject.h" />
@@ -52,6 +53,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)YMCollider.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMCollisionManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMComponent.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMDontDestroyOnLoad.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMInput.cpp" />

@@ -2,13 +2,18 @@
 #include "CommonInclude.h"
 #include "YMComponent.h"
 
+namespace YM::object
+{
+	void Destroy(GameObject* gameobject);
+}
+
 
 namespace YM
 {
 	class GameObject
 	{
 	public:
-		
+		friend void object::Destroy(GameObject* obj);
 
 		enum class eState
 		{
@@ -53,8 +58,8 @@ namespace YM
 			return component;
 		}
 
-		eState GetActive() { return mState; }
-		void SetActive(bool power)
+		eState GetState() { return mState; }
+		void SetState(bool power)
 		{
 			if (power == true)
 			{
@@ -67,6 +72,8 @@ namespace YM
 		}
 		bool IsActive() { return mState == eState::Active; }
 		bool IsDead() { return mState == eState::Dead; }
+		void SetLayerType(eLayerType layerType) { mLayerType = layerType; }
+		eLayerType GetLayerType() { return mLayerType; }
 
 	private:
 		void initializeTransform();
@@ -74,6 +81,7 @@ namespace YM
 	private:
 		eState mState;
 		std::vector<Component*> mComponents;
+		eLayerType mLayerType;
 	};
 
 	
