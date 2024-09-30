@@ -6,6 +6,8 @@
 namespace YM
 {
 	Vector2 TilemapRenderer::TileSize = Vector2::One;
+	Vector2 TilemapRenderer::OriginTileSize = Vector2::One;
+	Vector2 TilemapRenderer::SelectedIndex = Vector2(-1.0f,-1.0f);
 	
 
 	TilemapRenderer::TilemapRenderer()
@@ -18,6 +20,7 @@ namespace YM
 
 	{
 		TileSize = mTileSize * mSize;
+		OriginTileSize = mTileSize;
 	}
 	TilemapRenderer::~TilemapRenderer()
 	{

@@ -18,7 +18,8 @@
 #include "YMBoxCollider2D.h"
 #include "YMCircleCollider2D.h"
 #include "YMCollisionManager.h"
-
+#include "YMTile.h"
+#include "YMTilemapRenderer.h"
 namespace YM
 {
 	
@@ -32,6 +33,41 @@ namespace YM
 	}
 	void PlayScene::Initialize()
 	{
+		FILE* pFile = nullptr;
+		_wfopen_s(&pFile, L"..\\Resources\\home", L"rb");
+
+		while (true)
+		{
+			int idxX = 0;
+			int idxY = 0;
+
+			int posX = 0;
+			int posY = 0;
+
+			if (fread(&idxX, sizeof(int), 1, pFile) == NULL)
+			{
+				break;
+			}
+			if (fread(&idxY, sizeof(int), 1, pFile) == NULL)
+			{
+				break;
+			}
+			if (fread(&posX, sizeof(int), 1, pFile) == NULL)
+			{
+				break;
+			}
+			if (fread(&posY, sizeof(int), 1, pFile) == NULL)
+			{
+				break;
+			}
+
+			Tile* tile = Object::Instantiate<Tile>(eLayerType::Tile, Vector2(posX, posY));
+			TilemapRenderer* tmr = tile->AddComponent<TilemapRenderer>();
+			tmr->SetTexture(Resources::Find<graphics::Texture>(L"SpringFloor"));
+			tmr->SetIndex(Vector2(idxX, idxY));
+		}
+		fclose(pFile);
+
 		CollisionManager::CollisionLayerCheck(enums::eLayerType::Player, enums::eLayerType::Animal, true);
 		// main Camera
 		GameObject* camera = Object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(344.0f, 442.0f));

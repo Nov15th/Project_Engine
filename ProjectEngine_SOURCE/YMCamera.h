@@ -8,6 +8,7 @@ namespace YM
 	public:
 
 		Vector2 CalulatePosition(Vector2 pos) { return pos - mDistance; }
+		Vector2 CalulateTilePosition(Vector2 pos) { return pos + mDistance; }
 
 
 		Camera();

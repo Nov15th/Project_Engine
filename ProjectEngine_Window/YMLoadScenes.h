@@ -15,13 +15,13 @@ namespace YM
 
 
 
-		//SceneManager::CreatScene<PlayScene>(L"Play Scene");
+		SceneManager::CreatScene<PlayScene>(L"Play Scene");
 		//SceneManager::CreatScene<TitleScene>(L"Title Scene");
-		SceneManager::CreatScene<ToolScene>(L"Tool Scene");
+		//SceneManager::CreatScene<ToolScene>(L"Tool Scene");
 		//SceneManager::CreatScene<EndScene>(L"EndScene");
 		//SceneManager::CreatScene<TitleScene>(L"TitleScene");
 
-		SceneManager::LoadScene(L"Tool Scene");
+		SceneManager::LoadScene(L"Play Scene");
 
 	}
 }

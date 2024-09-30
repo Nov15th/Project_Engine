@@ -1,6 +1,6 @@
 #pragma once
 #include "..\\ProjectEngine_SOURCE\\YMScene.h"
-
+#include "YMTile.h"
 namespace YM
 {
 	class ToolScene : public Scene
@@ -17,7 +17,11 @@ namespace YM
 		void OnEnter() override;
 		void OnExit() override;
 
+		void Save();
+		void Load();
 	
+	private:
+		std::vector<Tile*> mTiles;
 
 	};
 }
