@@ -23,6 +23,7 @@ namespace YM
 		static Scene* LoadScene(const std::wstring& name);
 		static Scene* GetActiveScene() { return mActiveScene; }
 		static Scene* GetDonDestroyOnLoad() { return mDontDestroyOnLoad; }
+		static std::vector<GameObject*> GetGameObject(eLayerType layer);
 
 		static void Initialize();
 		static void Update();

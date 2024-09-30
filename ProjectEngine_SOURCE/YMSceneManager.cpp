@@ -27,6 +27,16 @@ namespace YM
 		return iter->second;
 	}
 
+	std::vector<GameObject*> SceneManager::GetGameObject(eLayerType layer)
+	{
+		std::vector<GameObject*> gameObjects = mActiveScene->GetLayer(layer)->GetGameObject(); 
+		std::vector<GameObject*> dontDestroyOnLoad = mDontDestroyOnLoad->GetLayer(layer)->GetGameObject();
+
+		gameObjects.insert(gameObjects.end(), dontDestroyOnLoad.begin(), dontDestroyOnLoad.end());
+
+		return gameObjects;
+	}
+
 	void SceneManager::Initialize()
 	{
 		mDontDestroyOnLoad = CreatScene<DontDestroyOnLoad>(L"DontDestroyOnLoad");

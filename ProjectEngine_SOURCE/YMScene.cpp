@@ -1,5 +1,5 @@
 #include "YMScene.h"
-
+#include "YMCollisionManager.h"
 
 namespace YM
 {
@@ -118,7 +118,7 @@ namespace YM
 
 	void Scene::OnExit()
 	{
-
+		CollisionManager::Clear();
 	}
 
 
