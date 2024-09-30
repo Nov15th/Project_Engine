@@ -6,6 +6,7 @@
 #include "YMTexture.h"
 #include "YMCamera.h"
 #include "YMRenderer.h"
+#include "YMInput.h"
 namespace YM
 {
 
@@ -37,6 +38,21 @@ namespace YM
 	void ToolScene::LateUpdate()
 	{
 		Scene::LateUpdate();
+
+		if (Input::GetKey(eKeyCode::LButton))
+		{
+			Vector2 pos = Input::GetMousePosition();
+
+			int idxX= pos.x / TilemapRenderer::TileSize.x;
+			int idxY= pos.y / TilemapRenderer::TileSize.y;
+
+			Tile* tile = Object::Instantiate<Tile>(eLayerType::Tile);
+			TilemapRenderer* tmr = tile->AddComponent<TilemapRenderer>();
+			tmr->SetTexture(Resources::Find<graphics::Texture>(L"SpringFloor"));
+			
+			tile->SetPosition(idxX,idxY);
+		}
+		
 	}
 	void ToolScene::Render(HDC hdc)
 	{
@@ -44,14 +60,14 @@ namespace YM
 
 		for (size_t i = 0; i< 50; i++)
 		{
-			MoveToEx(hdc, 16*3*i, 0, NULL);
-			LineTo(hdc, 16*3*i, 1000);
+			MoveToEx(hdc, TilemapRenderer::TileSize.x*i, 0, NULL);
+			LineTo(hdc, TilemapRenderer::TileSize.x*i, 1000);
 		}
 
 		for (size_t i = 0; i < 50; i++)
 		{
-			MoveToEx(hdc, 0,16 * 3 * i, NULL);
-			LineTo(hdc, 1000,16 * 3 * i);
+			MoveToEx(hdc, 0, TilemapRenderer::TileSize.y * i, NULL);
+			LineTo(hdc, 1000, TilemapRenderer::TileSize.y * i);
 		}
 	}
 	void ToolScene::OnEnter()
@@ -62,4 +78,49 @@ namespace YM
 	{
 		Scene::OnExit();
 	}
+}
+
+
+
+LRESULT CALLBACK WndTileProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+{
+	switch (message)
+	{
+	case WM_COMMAND:
+	{
+
+	}
+	break;
+	case WM_LBUTTONDOWN:
+	{
+
+	}
+	case WM_PAINT:
+	{
+		PAINTSTRUCT ps;
+		HDC hdc = BeginPaint(hWnd, &ps);
+
+		YM::graphics::Texture* texture = YM::Resources::Find<YM::graphics::Texture>(L"SpringFloor");
+
+		TransparentBlt(hdc
+			, 0, 0
+			, texture->GetWidth()
+			, texture->GetHeight()
+			, texture->GetHdc()
+			, 0, 0
+			, texture->GetWidth()
+			, texture->GetHeight()
+			, RGB(255, 0, 255));
+
+
+		EndPaint(hWnd, &ps);
+	}
+	break;
+	case WM_DESTROY:
+		PostQuitMessage(0);
+		break;
+	default:
+		return DefWindowProc(hWnd, message, wParam, lParam);
+	}
+	return 0;
 }

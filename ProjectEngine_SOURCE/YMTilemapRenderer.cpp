@@ -5,14 +5,19 @@
 #include "YMRenderer.h"
 namespace YM
 {
+	Vector2 TilemapRenderer::TileSize = Vector2::One;
+	
+
 	TilemapRenderer::TilemapRenderer()
 		:Component(enums::eComponentType::SpriteRender)
 		, mTexture(nullptr)
-		, mSize(Vector2::One)
+		, mSize(3,3)
 		, mIndex(0,0)
 		, mTileSize(16.0f, 16.0f)
 
+
 	{
+		TileSize = mTileSize * mSize;
 	}
 	TilemapRenderer::~TilemapRenderer()
 	{
