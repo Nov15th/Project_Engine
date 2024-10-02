@@ -29,6 +29,7 @@ namespace YM::enums
 	{
 		Transform,
 		Collider,
+		RigidBody,
 		Script,
 		SpriteRender,
 		Animator,

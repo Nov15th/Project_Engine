@@ -35,6 +35,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)YMRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMResources.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMRigidBody.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YMScript.h" />
@@ -63,6 +64,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)YMRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMResources.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMRigidBody.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)YMScript.cpp" />

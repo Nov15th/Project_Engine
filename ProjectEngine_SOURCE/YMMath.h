@@ -58,6 +58,12 @@ namespace YM::math
 			return Vector2(x - other.x, y - other.y);
 		}
 
+		Vector2 operator-()
+		{
+			return Vector2(-x, -y);
+		}
+
+
 		Vector2 operator+(Vector2 other)
 		{
 			return Vector2(x + other.x, y + other.y);
@@ -84,6 +90,11 @@ namespace YM::math
 			return Vector2(x * value, y * value);
 		}
 
+		bool operator==(Vector2 v)
+		{
+			return (x && v.x) && (y && v.y);
+		}
+
 
 		void clear()
 		{
@@ -99,8 +110,15 @@ namespace YM::math
 		Vector2 normalize()
 		{
 			float len = length();
-			x /= len;
-			y /= len;
+			if (len != 0)
+			{
+				x /= len;
+				y /= len;
+			}
+			else
+			{
+				return Vector2::Zero;
+			}
 
 			return *this;
 		}

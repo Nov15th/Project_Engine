@@ -5,6 +5,7 @@
 #include "Editor_Window.h"
 
 #include "..\\ProjectEngine_SOURCE\\peApplication.h"
+#include "..\\ProjectEngine_SOURCE\\YMSceneManager.h"
 #include "..\\ProjectEngine_Window\\YMLoadScenes.h"
 #include "..\\ProjectEngine_Window\\YMLoadResources.h"
 #include "..\\ProjectEngine_Window\\\YMToolScene.h"
@@ -146,8 +147,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 100, width, height, nullptr, nullptr, hInstance, nullptr);
 
-   HWND ToolhWnd = CreateWindowW(L"TILEWINDOW", L"TileWindow", WS_OVERLAPPEDWINDOW,
-      0, 0, width, height, nullptr, nullptr, hInstance, nullptr);
+   
 
    application.Initialize(hWnd, width, height);
 
@@ -167,20 +167,29 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    int a = 0;
    srand((unsigned) & a);
 
+   YM::Scene* activeScene = YM::SceneManager::GetActiveScene();
+   std::wstring name = activeScene->GetName();
+   if (name == L"Tool Scene")
+   {
+       HWND ToolhWnd = CreateWindowW(L"TILEWINDOW", L"TileWindow", WS_OVERLAPPEDWINDOW,
+           0, 0, width, height, nullptr, nullptr, hInstance, nullptr);
 
-   //Tile Window 크기 조정
-   YM::graphics::Texture* texture = YM::Resources::Find<YM::graphics::Texture>(L"SpringFloor");
+       //Tile Window 크기 조정
+       YM::graphics::Texture* texture = YM::Resources::Find<YM::graphics::Texture>(L"SpringFloor");
 
 
-   RECT rect = { 0,0, texture->GetWidth(), texture->GetHeight() };
-   AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
+       RECT rect = { 0,0, texture->GetWidth(), texture->GetHeight() };
+       AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
 
-   UINT toolWidth = rect.right - rect.left;
-   UINT toolHeight = rect.bottom - rect.top;
+       UINT toolWidth = rect.right - rect.left;
+       UINT toolHeight = rect.bottom - rect.top;
 
-   SetWindowPos(ToolhWnd, nullptr, width, 0, toolWidth, toolHeight, 0);
-   ShowWindow(ToolhWnd, true);
-   UpdateWindow(ToolhWnd);
+       SetWindowPos(ToolhWnd, nullptr, width, 0, toolWidth, toolHeight, 0);
+       ShowWindow(ToolhWnd, true);
+       UpdateWindow(ToolhWnd);
+   }
+
+  
 
 
 

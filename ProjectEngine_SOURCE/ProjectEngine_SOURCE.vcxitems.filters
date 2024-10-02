@@ -49,9 +49,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)YMAnimator.cpp">
       <Filter>Component\Animator</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)YMAnimation.cpp">
-      <Filter>Resource\Animation</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)YMResources.cpp">
       <Filter>Resource\ResourceManager</Filter>
     </ClCompile>
@@ -78,6 +75,12 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)YMTilemapRenderer.cpp">
       <Filter>Component\TilemapRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMAnimation.cpp">
+      <Filter>Component\Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)YMRigidBody.cpp">
+      <Filter>Component\RigidBody</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -138,9 +141,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)YMAnimator.h">
       <Filter>Component\Animator</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)YMAnimation.h">
-      <Filter>Resource\Animation</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)YMResources.h">
       <Filter>Resource\ResourceManager</Filter>
     </ClInclude>
@@ -167,6 +167,12 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)YMTilemapRenderer.h">
       <Filter>Component\TilemapRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMAnimation.h">
+      <Filter>Component\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)YMRigidBody.h">
+      <Filter>Component\RigidBody</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -215,9 +221,6 @@
     <Filter Include="Component\Animator">
       <UniqueIdentifier>{2efcac44-f995-47f1-912f-66ab77de17a7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource\Animation">
-      <UniqueIdentifier>{f6565da4-e812-43fc-8f33-0c0fc608c664}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Resource\ResourceManager">
       <UniqueIdentifier>{fd5cd454-a3b6-41ac-b0ce-01561d47d0e5}</UniqueIdentifier>
     </Filter>
@@ -232,6 +235,9 @@
     </Filter>
     <Filter Include="Component\TilemapRenderer">
       <UniqueIdentifier>{a5f41697-3610-4dcd-894c-63c3c288025f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\RigidBody">
+      <UniqueIdentifier>{6e3e779e-ea31-442c-a1df-295b7673ebb0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

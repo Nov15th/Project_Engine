@@ -9,6 +9,7 @@
 #include "YMObject.h"
 #include "YMResources.h"
 #include "YMCollider.h"
+#include "YMRigidBody.h"
 
 namespace YM
 {
@@ -104,28 +105,33 @@ namespace YM
 		
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
+		RigidBody* rb = GetOwner()->GetComponent<RigidBody>();
 
 		if (Input::GetKey(eKeyCode::Right))
 		{
-			pos.x += 100.0f * Time::DeltaTime();
+			//pos.x += 100.0f * Time::DeltaTime();
+			rb->AddForce(Vector2(200.0f, 0.0f));
 		}
 
 		if (Input::GetKey(eKeyCode::Left))
 		{
-			pos.x -= 100.0f * Time::DeltaTime();
+			//pos.x -= 100.0f * Time::DeltaTime();
+			rb->AddForce(Vector2(-200.0f, 0.0f));
 		}
 
 		if (Input::GetKey(eKeyCode::Up))
 		{
-			pos.y -= 100.0f * Time::DeltaTime();
+			//pos.y -= 100.0f * Time::DeltaTime();
+			rb->AddForce(Vector2(0.0f, -200.0f));
 		}
 
 		if (Input::GetKey(eKeyCode::Down))
 		{
-			pos.y += 100.0f * Time::DeltaTime();
+			//pos.y += 100.0f * Time::DeltaTime();
+			rb->AddForce(Vector2(0.0f, 200.0f));
 		}
 
-		tr->SetPosition(pos);
+		//tr->SetPosition(pos);
 
 	}
 	void PlayerScript::Move()
@@ -133,24 +139,30 @@ namespace YM
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
 
+		
+
 		if (Input::GetKey(eKeyCode::Right))
 		{	
 			pos.x += 100.0f * Time::DeltaTime();
+			
 		}
 
 		if (Input::GetKey(eKeyCode::Left))
 		{	
 			pos.x -= 100.0f * Time::DeltaTime();
+			
 		}
 
 		if (Input::GetKey(eKeyCode::Up))
 		{	
 			pos.y -= 100.0f * Time::DeltaTime();
+			
 		}
 
 		if (Input::GetKey(eKeyCode::Down))
 		{
 			pos.y += 100.0f * Time::DeltaTime();
+			
 		}
 
 		tr->SetPosition(pos);

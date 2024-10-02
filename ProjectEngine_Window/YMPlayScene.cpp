@@ -20,6 +20,8 @@
 #include "YMCollisionManager.h"
 #include "YMTile.h"
 #include "YMTilemapRenderer.h"
+#include "YMRigidBody.h"
+
 namespace YM
 {
 	
@@ -65,9 +67,12 @@ namespace YM
 
 
 		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(350.0f, 350.0f));
-		mPlayer->GetComponent<Transform>()->SetScale(Vector2(1.0f, 1.0f));
-		mPlayer->GetComponent<Transform>()->SetRotation(0.0f);
+		//mPlayer->GetComponent<Transform>()->SetScale(Vector2(1.0f, 1.0f));
+		//mPlayer->GetComponent<Transform>()->SetRotation(0.0f);
 		
+		
+		mPlayer->AddComponent<RigidBody>();
+
 
 
 		//Cat
